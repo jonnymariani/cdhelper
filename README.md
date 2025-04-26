@@ -30,7 +30,7 @@
 <br>
 
 ## TODO List
-- [x] Remember that making mistakes is part of the journey
+- [x] Remember that making mistakes is part of the journey ✔️
 - [x] Display CD currently listed in the marketplace ✔️
 - [ ] Display CDs contained in the jukebox when clicked
 - [ ] Export a list of your CD collection
