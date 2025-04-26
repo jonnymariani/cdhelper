@@ -4,7 +4,7 @@
 <br>
 
 <div align="center">
-  <a href="#"><img src="https://github.com/jonnymariani/cdhelper/blob/dev/resources/habbodj.gif" alt="Logo"></a>
+  <a href="#"><img src="https://github.com/jonnymariani/cdhelper/blob/main/resources/habbodj.gif" alt="Logo"></a>
   <h3 align="center">CD HELPER</h3>
 
   <p align="center">
