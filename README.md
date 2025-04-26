@@ -1,2 +1,45 @@
-# cdhelper
-A handy extension for Habbo that adds useful tools to manage your CDs in-game!
+
+![GitHub repo size](https://img.shields.io/github/issues/jonnymariani/cdhelper?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/jonnymariani/cdhelper?style=for-the-badge)
+<br>
+
+<div align="center">
+  <a href="#"><img src="cdhelper/resources/habbodj.gif" alt="Logo"></a>
+  <h3 align="center">CD HELPER</h3>
+
+  <p align="center">
+    A handy <a href="https://github.com/sirjonasxx/G-Earth" target="_blank">G-Earth</a> extension that adds useful tools to manage your CDs in-game!
+  </p>
+    
+  <br>
+</div>
+
+## Features
+<br>
+
+* Displays which CD is currently listed for sale in the marketplace.
+
+<br>
+
+## Compatibility
+<br>
+
+* Habbo Flash/AIR Client: ✔️
+* Habbo Unity Client: ❌
+
+<br>
+
+## TODO List
+- [x] Remember that making mistakes is part of the journey
+- [x] Display CD currently listed in the marketplace ✔️
+- [ ] Display CDs contained in the jukebox when clicked
+- [ ] Export a list of your CD collection
+- [ ] Download the MP3 files from your CD collection
+- [ ] List duplicate CDs
+- [ ] Any other crazy ideas I might come up with
+
+<br>
+<hr>
+<br>
+
+Special thanks to <a href="https://github.com/alynva" target="_blank">Alynva</a> for helping me take the first step.    
