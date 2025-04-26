@@ -15,18 +15,18 @@
 </div>
 
 ## Features
-<br>
-
 * Displays which CD is currently listed for sale in the marketplace.
 
 <br>
 
 ## Compatibility
-<br>
-
 * Habbo Flash/AIR Client: ✔️
 * Habbo Unity Client: ❌
 
+<br>
+
+## How To
+* To check the current CD on the marketplace, simply use the :sign 1 command (it also works through the UI)
 <br>
 
 ## TODO List
