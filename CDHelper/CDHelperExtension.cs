@@ -1,4 +1,7 @@
-﻿using CDHelper.Structs;
+﻿using CDHelper.Helpers;
+using CDHelper.Interceptors;
+using CDHelper.Models;
+using CDHelper.Structs;
 using Xabbo;
 using Xabbo.GEarth;
 using Xabbo.Messages.Flash;
@@ -10,7 +13,6 @@ namespace CDHelper
         private readonly GEarthExtension _extension;
         private readonly GEarthOptions _options;
         private readonly NotificationHandler _notificationHandler;
-
         public CDHelperExtension()
         {
             _options = new GEarthOptions
@@ -28,56 +30,64 @@ namespace CDHelper
             SubscribeToEvents();
         }
 
-        /// <summary>
-        /// Subscribes to g-earth events
-        /// Assina os eventos do g-earth
-        /// </summary>
-        private void SubscribeToEvents()
+        public void SubscribeToEvents()
         {
-            _extension.Initialized += OnExtensionInitialized;
-            _extension.Connected += OnGameConnected;
-            _extension.Disconnected += OnGameDisconnected;
-            _extension.Activated += OnExtensionActivated;
+            _extension.Initialized += GEarthEvents.OnExtensionInitialized;
+            _extension.Connected += GEarthEvents.OnGameConnected;
+            _extension.Disconnected += GEarthEvents.OnGameDisconnected;
+            _extension.Activated += () => GEarthEvents.OnExtensionActivated(_notificationHandler);
+
+
             _extension.Intercept(Out.Sign, OnSignPacketIntercepted);
+
+            _extension.Intercept(Out.Chat, OnChatPacketIntercepted);
+
+            _extension.Intercept(In.TraxSongInfo, OnTraxSongInfoPacketIntercepted);
+            _extension.Intercept(In.RoomReady, OnRoomReadyPacketIntercepted);
+
         }
 
-        /// <summary>
-        /// Handles the extension initialized event
-        /// Manipula o evento de inicializacao da extensao
-        /// </summary>
-        private void OnExtensionInitialized(InitializedEventArgs e)
+
+
+
+        private void OnChatPacketIntercepted(Intercept e)
         {
-            Console.WriteLine("Extension initialized.");
+            string message = e.Packet.Read<string>();
+
+
+            e.Block();
+
+            if (message == ":teste")
+            {
+                _extension.Send(Out.GetJukeboxPlayList); 
+            }
         }
 
-        /// <summary>
-        /// Handles the game connected event
-        /// Manipula o evento de conexao
-        /// </summary>
-        private void OnGameConnected(ConnectedEventArgs e)
+        private void OnRoomReadyPacketIntercepted(Intercept e)
         {
-            Console.WriteLine($"Game connected. {e.Session}");
+            RoomReady roomData = RoomReady.Parse(e.Packet.Reader());
+
+            RoomCdManager.SetCurrentRoomId(roomData.Id);
         }
 
-        /// <summary>
-        /// Handles the game disconnected event
-        /// Manipula o evento de desconexao
-        /// </summary>
-        private void OnGameDisconnected()
+
+        private void OnTraxSongInfoPacketIntercepted(Intercept e)
         {
-            Console.WriteLine("Game disconnected.");
+            var a = e.Packet.Read<int[]>();
+
+            //todo: capture list
+            List<CdData> list = [];
+
+            RoomCdManager.AddCdsToRoom(list);
+
+            foreach (var item in list)
+            {
+                //todo: show list
+            }
+
         }
 
-        /// <summary>
-        /// Handles the extension activated event
-        /// Manipula o evento de ativacao da extensao
-        /// </summary>
-        private void OnExtensionActivated()
-        {
-            Console.WriteLine("MarketplaceDiskPreview extension activated!");
 
-            _notificationHandler.SendNotification($"{_options.Name} successfully loaded.", NotificationBadges.Loaded);
-        }
 
         /// <summary>
         /// Intercepts 'Sign' packet to trigger marketplace offer retrieval
@@ -118,12 +128,15 @@ namespace CDHelper
             string user = nameParts.First().Trim();
             string cdName = nameParts.Last().Trim();
 
+            CdData cdData = new CdData(cdName, user);
+
             // Create the notification message
             // Cria a mensagem de notificação
-            string notification = $"{cdName}\n\nOffer by {user}";
+            string notification = $"{cdData.Name}\n\nOffer by {cdData.User}";
 
             _notificationHandler.SendNotification(notification, NotificationBadges.CdName);
         }
+
 
         /// <summary>
         /// Starts the extension

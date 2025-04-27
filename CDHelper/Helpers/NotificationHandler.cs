@@ -1,7 +1,7 @@
 ﻿using Xabbo.GEarth;
 using Xabbo.Messages.Flash;
 
-namespace CDHelper
+namespace CDHelper.Helpers
 {
     /// <summary>
     /// Handles sending notifications

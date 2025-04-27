@@ -1,6 +1,6 @@
 ﻿using Xabbo.Messages;
 
-namespace CDHelper
+namespace CDHelper.Models
 {
     /// <summary>
     /// Represents the data for a marketplace offer
