@@ -16,5 +16,11 @@ namespace CDHelper.Models
             Name = name;
             User = user;
         }
+
+        public CdData(TraxSongInfo info)
+        {
+            Name = info.CdName ?? string.Empty;
+            User = info.User ?? string.Empty;
+        }
     }
 }

@@ -1,10 +1,15 @@
-﻿using CDHelper.Helpers;
+﻿using System;
+using CDHelper.Helpers;
 using CDHelper.Interceptors;
 using CDHelper.Models;
 using CDHelper.Structs;
 using Xabbo;
+using Xabbo.Core;
+using Xabbo.Core.Messages.Outgoing;
 using Xabbo.GEarth;
+using Xabbo.Messages;
 using Xabbo.Messages.Flash;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CDHelper
 {
@@ -42,7 +47,6 @@ namespace CDHelper
 
             _extension.Intercept(Out.Chat, OnChatPacketIntercepted);
 
-            _extension.Intercept(In.TraxSongInfo, OnTraxSongInfoPacketIntercepted);
             _extension.Intercept(In.RoomReady, OnRoomReadyPacketIntercepted);
 
         }
@@ -54,36 +58,68 @@ namespace CDHelper
         {
             string message = e.Packet.Read<string>();
 
-
-            e.Block();
-
-            if (message == ":teste")
+            if (message == ":jukebox")
             {
-                _extension.Send(Out.GetJukeboxPlayList); 
+                e.Block();
+
+                _ = GetTraxSongInfoDataAsync();
             }
         }
 
         private void OnRoomReadyPacketIntercepted(Intercept e)
         {
-            RoomReady roomData = RoomReady.Parse(e.Packet.Reader());
+            RoomReady roomData = e.Packet.Read<RoomReady>();
 
             RoomCdManager.SetCurrentRoomId(roomData.Id);
         }
 
-
-        private void OnTraxSongInfoPacketIntercepted(Intercept e)
+        private async Task GetTraxSongInfoDataAsync()
         {
-            var a = e.Packet.Read<int[]>();
 
-            //todo: capture list
-            List<CdData> list = [];
+            _extension.Send(Out.GetJukeboxPlayList);
 
-            RoomCdManager.AddCdsToRoom(list);
+            IPacket? packetArgs = null;
 
-            foreach (var item in list)
-            {
-                //todo: show list
+            try
+            {               
+                packetArgs = await _extension.ReceiveAsync(In.TraxSongInfo,2000);
+
+                if (packetArgs is not null)
+                {
+                    TraxSongInfo[] jukeInfo = packetArgs.Read<TraxSongInfo[]>();
+
+                    var data = jukeInfo.Select(x => new CdData(x));
+                    RoomCdManager.AddCdsToRoom(data);
+                }
             }
+            catch (Exception)
+            {
+                
+            }
+
+            var cds = RoomCdManager.GetCurrentRoomCds();
+
+            if (cds is not null)
+            {
+                string msg = "\n";
+                string title = string.Empty;
+                title = "CD's Found!";
+
+                foreach (var cd in cds)
+                {
+                    msg += $"\t<b>{cd.Name}{(string.IsNullOrEmpty(cd.User) ? "" : $" - {cd.User}")}</b>\n\n";
+                }
+
+                msg = msg.TrimEnd('\n');
+                msg += "\n  ";
+
+                _extension.Send(In.NotificationDialog, "", 3, "title", $"{cds.Count()} CD's Found!", "message", msg, "image", NotificationBadges.Jukebox);
+            }
+            else
+            {
+                _notificationHandler.SendNotification($"No CD's found in the jukebox!", NotificationBadges.NotFound);
+            }
+
 
         }
 
@@ -120,7 +156,7 @@ namespace CDHelper
 
             // Parse the offer data from the packet
             // Converte os dados da oferta do pacote
-            OfferData offer = OfferData.Parse(packetArgs.Reader());
+            OfferData offer = packetArgs.Read<OfferData>();
 
             // Extract user and cd name
             // Extrai o nome do usuario e do cd

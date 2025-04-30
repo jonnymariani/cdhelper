@@ -29,13 +29,14 @@ namespace CDHelper
         /// </summary>
         public static void AddCdsToRoom(int roomId, IEnumerable<CdData> cds)
         {
+            CreateRoom(roomId);
+
             var room = _rooms.FirstOrDefault(r => r.RoomId == roomId);
-            if (room != null)
-            {
-                room.CDS = cds;
-            }
+
+            room!.CDS = cds;
+
         }
-        
+
         public static void AddCdsToRoom(IEnumerable<CdData> cds)
         {
             AddCdsToRoom(GetCurrentRoomId() ?? 0, cds);
@@ -113,6 +114,12 @@ namespace CDHelper
         public static IEnumerable<RoomCdData> GetAllRooms()
         {
             return _rooms;
+        }
+
+        public static IEnumerable<CdData>? GetCurrentRoomCds()
+        {
+            var room = GetCurrentRoom();
+            return room?.CDS;
         }
     }
 }
