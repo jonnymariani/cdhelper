@@ -1,13 +1,13 @@
 ﻿using Xabbo.GEarth;
 using Xabbo.Messages.Flash;
 
-namespace CDHelper.Helpers
+namespace CDHelper.Services
 {
     /// <summary>
     /// Handles sending notifications
     /// Gerencia o envio de notificacoes
     /// </summary>
-    public class NotificationHandler(GEarthExtension extension)
+    public class NotificationService(GEarthExtension extension)
     {
         private readonly GEarthExtension _extension = extension;
 

@@ -1,10 +1,11 @@
 ﻿using CDHelper.Models;
+using CDHelper.Models.PacketData;
 
-namespace CDHelper
+namespace CDHelper.Coordinators
 {
-    public static class RoomCdManager
+    public static class RoomCdCoordinator
     {
-        private static readonly List<RoomCdData> _rooms = new();
+        private static readonly List<RoomCdConfiguration> _rooms = new();
 
         // Guarda o ID da sala atual / Stores the current room ID
         public static int? CurrentRoomId { get; private set; }
@@ -18,7 +19,7 @@ namespace CDHelper
             var existingRoom = _rooms.FirstOrDefault(r => r.RoomId == roomId);
             if (existingRoom == null)
             {
-                _rooms.Add(new RoomCdData(roomId));
+                _rooms.Add(new RoomCdConfiguration(roomId));
             }
             CurrentRoomId = roomId;
         }
@@ -64,7 +65,7 @@ namespace CDHelper
         /// Retorna os dados da sala atual.
         /// Returns the current room data.
         /// </summary>
-        public static RoomCdData? GetCurrentRoom()
+        public static RoomCdConfiguration? GetCurrentRoom()
         {
             if (CurrentRoomId.HasValue)
                 return GetRoom(CurrentRoomId.Value);
@@ -75,7 +76,7 @@ namespace CDHelper
         /// Busca uma sala específica pelo ID.
         /// Finds a specific room by its ID.
         /// </summary>
-        public static RoomCdData? GetRoom(int roomId)
+        public static RoomCdConfiguration? GetRoom(int roomId)
         {
             return _rooms.FirstOrDefault(r => r.RoomId == roomId);
         }
@@ -111,7 +112,7 @@ namespace CDHelper
         /// Retorna todas as salas salvas.
         /// Returns all saved rooms.
         /// </summary>
-        public static IEnumerable<RoomCdData> GetAllRooms()
+        public static IEnumerable<RoomCdConfiguration> GetAllRooms()
         {
             return _rooms;
         }

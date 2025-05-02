@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CDHelper.Models
+﻿namespace CDHelper.Models.PacketData
 {
     public class CdData
     {
@@ -17,7 +11,7 @@ namespace CDHelper.Models
             User = user;
         }
 
-        public CdData(TraxSongInfo info)
+        public CdData(TraxSongData info)
         {
             Name = info.CdName ?? string.Empty;
             User = info.User ?? string.Empty;

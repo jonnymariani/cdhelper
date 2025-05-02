@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CDHelper.Helpers;
+﻿using CDHelper.Services;
 using CDHelper.Structs;
 using Xabbo;
 
 namespace CDHelper.Interceptors
 {
-    public static class GEarthEvents
+    public static class GEarthEventInterceptor
     {
         /// <summary>
         /// Handles the extension initialized event
@@ -42,7 +37,7 @@ namespace CDHelper.Interceptors
         /// Handles the extension activated event
         /// Manipula o evento de ativacao da extensao
         /// </summary>
-        public static void OnExtensionActivated(NotificationHandler notificationHandler)
+        public static void OnExtensionActivated(NotificationService notificationHandler)
         {
             Console.WriteLine("Extension activated!");
 
