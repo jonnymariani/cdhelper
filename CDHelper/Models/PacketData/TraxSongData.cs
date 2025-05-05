@@ -11,10 +11,10 @@ namespace CDHelper.Models.PacketData
     {
         public Id Id { get; set; }
         public string? a { get; set; }
-        public string? CdName { get; set; }
+        public string? Title { get; set; }
         public string? b { get; set; }
         public int c { get; set; }
-        public string? User { get; set; }
+        public string? Author { get; set; }
       
 
         /// <summary>
@@ -29,10 +29,10 @@ namespace CDHelper.Models.PacketData
             {
                 Id = reader.ReadId(),
                 a = reader.ReadString(),
-                CdName = reader.ReadString(),
+                Title = reader.ReadString(),
                 b = reader.ReadString(),
                 c = reader.ReadInt(),
-                User = reader.ReadString()
+                Author = reader.ReadString()
             };
         }
     }

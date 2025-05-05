@@ -1,6 +1,7 @@
 ﻿using CDHelper.Services;
 using CDHelper.Structs;
 using Xabbo;
+using Xabbo.Core.GameData;
 
 namespace CDHelper.Interceptors
 {
@@ -19,8 +20,22 @@ namespace CDHelper.Interceptors
         /// Handles the game connected event
         /// Manipula o evento de conexao
         /// </summary>
-        public static void OnGameConnected(ConnectedEventArgs e)
+        public static async Task OnGameConnected(ConnectedEventArgs e, GameDataManager gameDataManager)
         {
+            Console.WriteLine($"Loading game data for hotel: {e.Session.Hotel}...");
+
+            try
+            {
+                // Load game data for the current hotel.
+                await gameDataManager.LoadAsync(e.Session.Hotel);
+
+                Console.WriteLine($"Loaded {gameDataManager.Furni?.Count ?? 0} furni info");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to load game data: {ex.Message}");
+            }
+
             Console.WriteLine($"Game connected. {e.Session}");
         }
 
@@ -41,7 +56,7 @@ namespace CDHelper.Interceptors
         {
             Console.WriteLine("Extension activated!");
 
-            notificationHandler.SendNotification($"CD HELPER successfully loaded.", NotificationBadges.Loaded);
+            notificationHandler.SendToastNotification($"CD Helper has been loaded successfully.", NotificationBadges.Loaded);
         }
     }
 }

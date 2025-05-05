@@ -2,19 +2,19 @@
 {
     public class CdData
     {
-        public string Name { get; set; }
-        public string User { get; set; }
+        public string Title { get; set; }
+        public string Author { get; set; }
 
-        public CdData(string name, string user)
+        public CdData(string title, string author)
         {
-            Name = name;
-            User = user;
+            Title = title;
+            Author = author;
         }
 
         public CdData(TraxSongData info)
         {
-            Name = info.CdName ?? string.Empty;
-            User = info.User ?? string.Empty;
+            Title = info.Title ?? string.Empty;
+            Author = info.Author ?? string.Empty;
         }
     }
 }
