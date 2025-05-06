@@ -15,7 +15,9 @@
 </div>
 
 ## Features
-* Displays which CD is currently listed for sale in the marketplace.
+* Retrieves the CD currently listed for sale in the marketplace
+* Extract the list of CDs from anyone's jukebox, even if it's turned off
+* Exports your CD collection to a file, making it easy to share
 
 <br>
 
@@ -27,7 +29,7 @@
 
 ## Command List
 
-All commands starts with <strong>":cd"</strong>
+All commands start with <strong>":cd"</strong>
 
 * <strong>juke</strong> - Retrieves the list of CD's from the room's jukebox.
 
@@ -37,14 +39,14 @@ All commands starts with <strong>":cd"</strong>
 
 * <strong>export</strong> - Exports your collection to .txt file 
   * <strong>export inv</strong> - Exports only from inventory 
-  * <strong>export room</strong> - Exports only from room
-  * <strong>export juke</strong> - Exports only from jukebox
-  * only <strong>export</strong> or <strong>export all</strong> - Exports from all above
+  * <strong>export room</strong> - Exports only from the room
+  * <strong>export juke</strong> - Exports only from the jukebox
+  * <strong>export</strong> or <strong>export all</strong> - Exports from all above
 
 <br>
 
 ## Example Usage:
-#### To use the commands, type them in the chat as follows:
+#### To use the commands, type in the chat like this:
 <strong>:cd command</strong>
 * Examples:
   * <strong>:cd market</strong>
@@ -54,11 +56,11 @@ All commands starts with <strong>":cd"</strong>
 ## TODO List
 - [x] Remember that making mistakes is part of the journey ✔️
 - [x] Display CD currently listed in the marketplace ✔️
-- [x] Display CDs contained in jukebox ✔️
+- [x] Display CD's contained in jukebox ✔️
 - [x] Export a list of your CD collection ✔️
 - [ ] Option to automatically list the CDs in a room when you enter (useful for finding CDs in trading rooms)
 - [ ] Download the MP3 files from your CD collection
-- [ ] Any other crazy ideas I might come up with
+- [ ] Whatever other crazy ideas I might come up with
 
 <br>
 <hr>
