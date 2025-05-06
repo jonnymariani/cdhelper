@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using CDHelper.Models.PacketData;
-using CDHelper.Structs;
 using Xabbo.Core;
 
 namespace CDHelper.Utils

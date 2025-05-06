@@ -1,5 +1,7 @@
-﻿using CDHelper.Services;
+﻿using CDHelper.Resources;
+using CDHelper.Services;
 using CDHelper.Structs;
+using CDHelper.Utils;
 using Xabbo;
 using Xabbo.Core.GameData;
 
@@ -29,6 +31,9 @@ namespace CDHelper.Interceptors
                 // Load game data for the current hotel.
                 await gameDataManager.LoadAsync(e.Session.Hotel);
 
+                LanguageHelper.SetLanguage(e.Session.Hotel.Domain);
+                CatalogMusicData.SetData(e.Session.Hotel.Domain);
+
                 Console.WriteLine($"Loaded {gameDataManager.Furni?.Count ?? 0} furni info");
             }
             catch (Exception ex)
@@ -56,7 +61,7 @@ namespace CDHelper.Interceptors
         {
             Console.WriteLine("Extension activated!");
 
-            notificationHandler.SendToastNotification($"CD Helper has been loaded successfully.", NotificationBadges.Loaded);
+            notificationHandler.SendToastNotification($"{LanguageHelper.Get(Messages.LoadedSuccessfully)}!", NotificationBadges.Loaded);
         }
     }
 }

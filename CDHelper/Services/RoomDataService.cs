@@ -1,4 +1,5 @@
 ﻿using CDHelper.Models.PacketData;
+using CDHelper.Resources;
 using CDHelper.Structs;
 using CDHelper.Utils;
 using Xabbo.Core;
@@ -29,14 +30,14 @@ namespace CDHelper.Services
             // Garante que o usuario esteja em um quarto  
             if (!_roomManager.EnsureInRoom(out var room))
             {
-                _notificationService.SendToastNotification("Room state is not being tracked. Please reenter the room and try again.", NotificationBadges.Error);
+                _notificationService.SendToastNotification(Messages.RoomNotBeingTracked, NotificationBadges.Error);
                 return null;
             }
 
-            // Filters the furni to get only the CDs (kind 2322)  
-            // Filtra os furnis para pegar apenas os CDs (tipo 2322)  
+            // Filters the furni to get only the CDs
+            // Filtra os furnis para pegar apenas os CDs
             IFurni[] cdFurni = room.Furni
-                .Where(x => x.Kind == 2322)
+                .Where(x => x.Kind == FurniIds.CD)
                 .ToArray();
 
             // Retrieves the CD data from the furni  

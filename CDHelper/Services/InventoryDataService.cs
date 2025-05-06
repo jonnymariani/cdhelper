@@ -1,4 +1,5 @@
 ﻿using CDHelper.Models.PacketData;
+using CDHelper.Resources;
 using CDHelper.Structs;
 using CDHelper.Utils;
 using Xabbo.Core.Game;
@@ -36,10 +37,10 @@ namespace CDHelper.Services
                 // Carrega o inventário
                 IInventory inventory = await _inventoryManager.LoadInventoryAsync();
 
-                // Filters the furni to get only the CDs (kind 2322)  
-                // Filtra os furnis para pegar apenas os CDs (tipo 2322) 
+                // Filters the furni to get only the CDs 
+                // Filtra os furnis para pegar apenas os CDs
                 var cdFurni = inventory?
-                .Where(x => x.Kind == 2322)
+                .Where(x => x.Kind == FurniIds.CD)
                 .ToArray();
 
                 // List to store song IDs  
@@ -99,7 +100,7 @@ namespace CDHelper.Services
             }
             catch (TimeoutException e)
             {
-                _notificationService.SendToastNotification("Unable to load inventory data.", NotificationBadges.Error);
+                    _notificationService.SendToastNotification($"{LanguageHelper.Get(Messages.UnableLoadInventory)}.", NotificationBadges.Error);
 
                 return null;
             }

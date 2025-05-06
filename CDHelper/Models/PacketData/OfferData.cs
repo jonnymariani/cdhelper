@@ -7,8 +7,7 @@ namespace CDHelper.Models.PacketData
     /// Representa os dados de uma oferta do marketplace
     /// </summary>
     public class OfferData : IParser<OfferData>
-    {
-        public int Z { get; set; }
+    {      
         public int OfferIdPacket { get; set; }
         public int A { get; set; }
         public int B { get; set; }
@@ -30,8 +29,7 @@ namespace CDHelper.Models.PacketData
         public static OfferData Parse(in PacketReader reader)
         {
             return new OfferData
-            {
-                Z = reader.ReadInt(),
+            {             
                 OfferIdPacket = reader.ReadInt(),
                 A = reader.ReadInt(),
                 B = reader.ReadInt(),

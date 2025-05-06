@@ -1,5 +1,7 @@
 ﻿using CDHelper.Coordinators;
 using CDHelper.Models.PacketData;
+using CDHelper.Structs;
+using CDHelper.Utils;
 using Xabbo;
 using Xabbo.GEarth;
 using Xabbo.Messages.Flash;
@@ -78,7 +80,7 @@ namespace CDHelper.Services
         /// </summary>
         public async Task GetMarketCDDataAsync()
         {
-            _extension.Send(Out.GetMarketplaceOffers, -1, -1, "Epic Flail", 1);
+            _extension.Send(Out.GetMarketplaceOffers, -1, -1, DefaultMarketCD.GetName(), 1);
 
             // Capture the marketplace offers packet
             // Captura o pacote de ofertas do marketplace
@@ -86,8 +88,15 @@ namespace CDHelper.Services
 
             // Parse the offer data from the packet
             // Converte os dados da oferta do pacote
-            OfferData offer = packetArgs.Read<OfferData>();
+            OfferData[] offers = packetArgs.Read<OfferData[]>();
 
+            OfferData? offer = offers.FirstOrDefault(x => x.FurniId == FurniIds.CD);
+
+            if (offer == null)
+            {
+                _notificationService.SendNoCdsFoundNotification();
+                return;
+            }
 
             // Extract author and title
             // Extrai o nome do autor e do cd

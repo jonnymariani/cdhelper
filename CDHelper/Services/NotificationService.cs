@@ -1,6 +1,8 @@
 ﻿using System.Text;
 using CDHelper.Models.PacketData;
+using CDHelper.Resources;
 using CDHelper.Structs;
+using CDHelper.Utils;
 using Xabbo.GEarth;
 using Xabbo.Messages.Flash;
 
@@ -18,8 +20,8 @@ namespace CDHelper.Services
         {
             // Create the notification message
             // Cria a mensagem de notificação
-            string notification = $"{cdData.Title}\n\nOffer by {cdData.Author}";
-
+            string notification = LanguageHelper.Get(Messages.OfferBy, cdData.Title, cdData.Author);
+            
             SendToastNotification(notification, NotificationBadges.Market);
         }
 
@@ -45,7 +47,7 @@ namespace CDHelper.Services
 
                 // Sends the notification with the found CDs
                 // Envia a notificação com os CDs encontrados
-                SendModalNotification($"{cds.Count()} CD's Found!", message, NotificationBadges.Jukebox);
+                SendModalNotification(LanguageHelper.Get(Messages.CDsFound, cds.Count()), message, NotificationBadges.Jukebox);
             }
             else
             {
@@ -58,22 +60,22 @@ namespace CDHelper.Services
         public void SendHelpNotification()
         {
             string badge = NotificationBadges.Alert;
-            string title = "Info";
+            string title = LanguageHelper.Get(Messages.Info);
             string message = "\n";
 
             //message += "<b>CD Helper</b>\n";
-            message += "<small>CD Helper is an extension to help you manage and discover CDs in Habbo more easily.</small>\n\n";
+            message += $"<small>{LanguageHelper.Get(Messages.ExtensionDescription)}.</small>\n\n";
 
-            message += "<b>Command List:</b>\n\n";
+            message += $"<b>{LanguageHelper.Get(Messages.CommandList)}:</b>\n\n";
 
-            message += $"<b>{Commands.GetJukeboxCds}</b> - Retrieves the list of CD's from the room's jukebox.\n\n";
-            message += $"<b>{Commands.GetCdInfoFromMarket}</b> - Retrieves the name of the current CD from the marketplace.\n\n";
-            message += $"<b>{Commands.Help}</b> - Uh... well... opens this very screen. What did you expect?\n\n";
+            message += $"<b>{Commands.GetJukeboxCds}</b> - {LanguageHelper.Get(Messages.RetrievesListOfCDs)}.\n\n";
+            message += $"<b>{Commands.GetCdInfoFromMarket}</b> - {LanguageHelper.Get(Messages.RetrievesNameMarketplace)}.\n\n";
+            message += $"<b>{Commands.Help}</b> - {LanguageHelper.Get(Messages.OpensThisScreen)}\n\n";
 
             // Add section with generic usage example
-            message += "<b>Example Usage:</b>\n\n";
-            message += "To use the commands, type them in the chat as follows:\n\n";
-            message += $"<i><b>{Commands.PreFix} command</b></i>\n";
+            message += $"<b>{LanguageHelper.Get(Messages.ExampleUsage)}:</b>\n\n";
+            message += $"{LanguageHelper.Get(Messages.ToUseCommands)}:\n\n";
+            message += $"<i><b>{Commands.PreFix} {LanguageHelper.Get(Messages.Command)}</b></i>\n";
 
             _extension.Send(In.NotificationDialog, "", 3,
                 "title", title,
@@ -87,7 +89,7 @@ namespace CDHelper.Services
         {
             // Create the notification message
             // Cria a mensagem de notificação
-            string notification = "No CD's found in the jukebox!";
+            string notification = $"{LanguageHelper.Get(Messages.NoCDsFound)}!";
             string badge = NotificationBadges.Alert;
 
             SendToastNotification(notification, badge);
@@ -95,7 +97,7 @@ namespace CDHelper.Services
 
         public void SendExportSuccessNotification(int count)
         {           
-            string notification = $"Successfully exported {count} CDs";
+            string notification = LanguageHelper.Get(Messages.SuccessfullyExportedCDs, count);
             string badge = NotificationBadges.FileExportSuccess;
 
             SendToastNotification(notification, badge);
@@ -103,7 +105,7 @@ namespace CDHelper.Services
 
         public void SendExportingNotification()
         {           
-            string notification = "Exporting to file...";
+            string notification = $"{LanguageHelper.Get(Messages.ExportingToFile)}...";
             string badge = NotificationBadges.FileExportInProgress;
 
             SendToastNotification(notification, badge);

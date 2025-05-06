@@ -129,13 +129,18 @@ namespace CDHelper.Services
 
             // Gets the executable directory
             // Obtém o diretório do executável
-            string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string exeDirectory = AppDomain.CurrentDomain.BaseDirectory + "export";
+
+            if (!Path.Exists(exeDirectory))
+            {
+                Directory.CreateDirectory(exeDirectory);
+            }
 
             // Formats the date and time to create a unique file name
             // Formata a data e hora para criar um nome de arquivo único
             string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
             string fileName = $"CDHelperExport_{timestamp}{(string.IsNullOrEmpty(suffix) ? "" : "_" + suffix)}.txt";
-            string filePath = Path.Combine(exeDirectory + "/export", fileName);
+            string filePath = Path.Combine(exeDirectory, fileName);
 
             // Groups CDs by Title + Author and counts occurrences
             // Agrupa os CDs por Título + Autor e conta as ocorrências

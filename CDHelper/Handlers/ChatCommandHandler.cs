@@ -1,5 +1,7 @@
-﻿using CDHelper.Services;
+﻿using CDHelper.Resources;
+using CDHelper.Services;
 using CDHelper.Structs;
+using CDHelper.Utils;
 using Xabbo;
 
 namespace CDHelper.Handlers
@@ -35,7 +37,7 @@ namespace CDHelper.Handlers
             if (parts.Length < 2)
             {
                 _notificationService.SendToastNotification(
-                    $"Usage: {Commands.PreFix} {Commands.Help}",
+                    $"{LanguageHelper.Get(Messages.Usage)}: {Commands.PreFix} {Commands.Help}",
                     NotificationBadges.Alert
                 );
 
@@ -100,7 +102,7 @@ namespace CDHelper.Handlers
                             // Invalid argument
                             default:
                                 _notificationService.SendToastNotification(
-                                    $"Invalid export argument: {arg2}",
+                                    $"{LanguageHelper.Get(Messages.UnknownCommand, $"{Commands.PreFix} {arg1} {arg2}", $"{Commands.PreFix} {Commands.Help}")}",
                                     NotificationBadges.Alert
                                 );
                                 break;
@@ -111,7 +113,7 @@ namespace CDHelper.Handlers
 
                 default:
                     _notificationService.SendToastNotification(
-                        $"Unknown command: {arg1}. Try: {Commands.PreFix} {Commands.Help}",
+                        LanguageHelper.Get(Messages.UnknownCommand, arg1, $"{Commands.PreFix} {Commands.Help}"),                      
                         NotificationBadges.Alert
                     );
                     break;

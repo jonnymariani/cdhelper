@@ -18,5 +18,44 @@
 		<PackageReference Include="Xabbo.GEarth" Version="1.0.1" />
 		<PackageReference Include="Xabbo.Messages" Version="1.0.2" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Resources\Messages.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Messages.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\Messages.de.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Messages.es.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Messages.fi.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Messages.fr.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Messages.it.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Messages.nl.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Messages.pt-BR.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Messages.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Messages.tr.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	</ItemGroup>
 	
 </Project>
