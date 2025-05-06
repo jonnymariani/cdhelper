@@ -25,21 +25,43 @@
 
 <br>
 
-## How To
-* To check the current CD on the marketplace, simply use the :sign 1 command (it also works through the UI)
+## Command List
+
+All commands starts with <strong>":cd"</strong>
+
+* <strong>juke</strong> - Retrieves the list of CD's from the room's jukebox.
+
+* <strong>market</strong> - Retrieves the name of the current CD from the marketplace.
+
+* <strong>help</strong> - Opens the help screen.
+
+* <strong>export</strong> - Exports your collection to .txt file 
+  * <strong>export inv</strong> - Exports only from inventory 
+  * <strong>export room</strong> - Exports only from room
+  * <strong>export juke</strong> - Exports only from jukebox
+  * only <strong>export</strong> or <strong>export all</strong> - Exports from all above
+
+<br>
+
+## Example Usage:
+#### To use the commands, type them in the chat as follows:
+<strong>:cd command</strong>
+* Examples:
+  * <strong>:cd market</strong>
+  * <strong>:cd export room</strong>
 <br>
 
 ## TODO List
 - [x] Remember that making mistakes is part of the journey ✔️
 - [x] Display CD currently listed in the marketplace ✔️
-- [ ] Display CDs contained in the jukebox when clicked
-- [ ] Export a list of your CD collection
+- [x] Display CDs contained in jukebox ✔️
+- [x] Export a list of your CD collection ✔️
+- [ ] Option to automatically list the CDs in a room when you enter (useful for finding CDs in trading rooms)
 - [ ] Download the MP3 files from your CD collection
-- [ ] List duplicate CDs
 - [ ] Any other crazy ideas I might come up with
 
 <br>
 <hr>
 <br>
 
-Special thanks to <a href="https://github.com/alynva" target="_blank">Alynva</a> for helping me take the first step.    
+Special thanks to <a href="https://github.com/alynva" target="_blank">Alynva</a> for helping me take <s>the first step</s> so many steps.    
