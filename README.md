@@ -5,7 +5,7 @@
 
 <div align="center">
   <a href="#"><img src="https://github.com/jonnymariani/cdhelper/blob/main/resources/habbodj.gif" alt="Logo"></a>
-  <h3 align="center">CD HELPER</h3>
+  <h1 align="center">CD HELPER</h3>
 
   <p align="center">
     A handy <a href="https://github.com/sirjonasxx/G-Earth" target="_blank">G-Earth</a> extension that adds useful tools to manage your CDs in-game!
