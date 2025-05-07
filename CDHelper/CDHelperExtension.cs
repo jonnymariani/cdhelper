@@ -1,7 +1,10 @@
-﻿using CDHelper.Structs;
-using Xabbo;
+﻿using CDHelper.Handlers;
+using CDHelper.Interceptors;
+using CDHelper.Services;
+using CDHelper.Utils;
+using Xabbo.Core.Game;
+using Xabbo.Core.GameData;
 using Xabbo.GEarth;
-using Xabbo.Messages.Flash;
 
 namespace CDHelper
 {
@@ -9,126 +12,59 @@ namespace CDHelper
     {
         private readonly GEarthExtension _extension;
         private readonly GEarthOptions _options;
-        private readonly NotificationHandler _notificationHandler;
+
+        private readonly NotificationService _notificationService;
+        private readonly GameDataManager _gameDataManager;
+
+        private readonly RoomManager _roomManager;
+        private readonly InventoryManager _inventoryManager;
+        private readonly TradeManager _tradeManager;
+        private readonly ProfileManager _profileManager;
+
+        private readonly JukeboxService _jukeboxService;
+        private readonly ExportService _exportService;
+        private readonly RoomDataService _roomDataService;
+        private readonly InventoryDataService _inventoryService;
+        private readonly FurniHelper _furniHelper;
+
+        private readonly ChatCommandHandler _chatHandler;
+        private readonly RoomPacketHandler _roomPacketHandler;
+
+        private readonly PacketInterceptor _packetInterceptor;
 
         public CDHelperExtension()
         {
+            // Inicializando configurações do GEarth
             _options = new GEarthOptions
             {
                 Name = "CD Helper",
                 Description = "A handy extension for Habbo that adds useful tools to manage your CDs in-game!",
                 Author = "jonny7k",
-                Version = "0.1"
+                Version = "1.0"
             };
-
             _extension = new GEarthExtension(_options);
 
-            _notificationHandler = new NotificationHandler(_extension);
 
-            SubscribeToEvents();
+            _notificationService = new NotificationService(_extension);
+            _gameDataManager = new GameDataManager();
+
+            _roomManager = new RoomManager(_extension);
+            _profileManager = new ProfileManager(_extension);
+            _tradeManager = new TradeManager(_extension, _profileManager, _roomManager);
+            _inventoryManager = new InventoryManager(_extension, _roomManager, _tradeManager);
+
+            _jukeboxService = new JukeboxService(_extension, _notificationService);
+            _furniHelper = new FurniHelper();
+            _inventoryService = new InventoryDataService(_extension, _notificationService, _inventoryManager, _jukeboxService, _furniHelper);
+            _roomDataService = new RoomDataService(_notificationService, _roomManager, _furniHelper);
+            _exportService = new ExportService(_notificationService, _roomDataService, _jukeboxService, _inventoryService);
+
+            _chatHandler = new ChatCommandHandler(_notificationService, _jukeboxService, _exportService);
+            _roomPacketHandler = new RoomPacketHandler();
+
+            _packetInterceptor = new PacketInterceptor(_extension, _notificationService, _gameDataManager, _chatHandler, _roomPacketHandler);
         }
 
-        /// <summary>
-        /// Subscribes to g-earth events
-        /// Assina os eventos do g-earth
-        /// </summary>
-        private void SubscribeToEvents()
-        {
-            _extension.Initialized += OnExtensionInitialized;
-            _extension.Connected += OnGameConnected;
-            _extension.Disconnected += OnGameDisconnected;
-            _extension.Activated += OnExtensionActivated;
-            _extension.Intercept(Out.Sign, OnSignPacketIntercepted);
-        }
-
-        /// <summary>
-        /// Handles the extension initialized event
-        /// Manipula o evento de inicializacao da extensao
-        /// </summary>
-        private void OnExtensionInitialized(InitializedEventArgs e)
-        {
-            Console.WriteLine("Extension initialized.");
-        }
-
-        /// <summary>
-        /// Handles the game connected event
-        /// Manipula o evento de conexao
-        /// </summary>
-        private void OnGameConnected(ConnectedEventArgs e)
-        {
-            Console.WriteLine($"Game connected. {e.Session}");
-        }
-
-        /// <summary>
-        /// Handles the game disconnected event
-        /// Manipula o evento de desconexao
-        /// </summary>
-        private void OnGameDisconnected()
-        {
-            Console.WriteLine("Game disconnected.");
-        }
-
-        /// <summary>
-        /// Handles the extension activated event
-        /// Manipula o evento de ativacao da extensao
-        /// </summary>
-        private void OnExtensionActivated()
-        {
-            Console.WriteLine("MarketplaceDiskPreview extension activated!");
-
-            _notificationHandler.SendNotification($"{_options.Name} successfully loaded.", NotificationBadges.Loaded);
-        }
-
-        /// <summary>
-        /// Intercepts 'Sign' packet to trigger marketplace offer retrieval
-        /// Intercepta o pacote 'Sign' para acionar a recuperacao de ofertas da feira
-        /// </summary>
-        private void OnSignPacketIntercepted(Intercept e)
-        {
-            e.Block();
-            int signNumber = e.Packet.Read<int>();
-
-            // Trigger marketplace offer request when a specific sign is used 
-            // Aciona a requisicao de ofertas do marketplace quando um sinal específico e usado
-            if (signNumber == 1)
-            {
-                _extension.Send(Out.GetMarketplaceOffers, -1, -1, "Epic Flail", 1);
-                _ = GetDiskDataAsync();
-            }
-        }
-
-        /// <summary>
-        /// Retrieves and processes marketplace cds offer data
-        /// Recupera e processa os dados de ofertas de cds do marketplace
-        /// </summary>
-        private async Task GetDiskDataAsync()
-        {
-            // Capture the marketplace offers packet
-            // Captura o pacote de ofertas do marketplace
-            var packetArgs = await _extension.ReceiveAsync(In.MarketPlaceOffers);
-            Console.WriteLine("Received marketplace data.");
-
-            // Parse the offer data from the packet
-            // Converte os dados da oferta do pacote
-            OfferData offer = OfferData.Parse(packetArgs.Reader());
-
-            // Extract user and cd name
-            // Extrai o nome do usuario e do cd
-            string[] nameParts = offer.Name.Split('\n');
-            string user = nameParts.First().Trim();
-            string cdName = nameParts.Last().Trim();
-
-            // Create the notification message
-            // Cria a mensagem de notificação
-            string notification = $"{cdName}\n\nOffer by {user}";
-
-            _notificationHandler.SendNotification(notification, NotificationBadges.CdName);
-        }
-
-        /// <summary>
-        /// Starts the extension
-        /// Inicia a extensao
-        /// </summary>
         public void Run()
         {
             _extension.Run();

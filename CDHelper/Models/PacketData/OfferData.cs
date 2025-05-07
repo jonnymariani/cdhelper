@@ -1,20 +1,19 @@
 ﻿using Xabbo.Messages;
 
-namespace CDHelper
+namespace CDHelper.Models.PacketData
 {
     /// <summary>
     /// Represents the data for a marketplace offer
     /// Representa os dados de uma oferta do marketplace
     /// </summary>
     public class OfferData : IParser<OfferData>
-    {
-        public int Z { get; set; }
+    {      
         public int OfferIdPacket { get; set; }
         public int A { get; set; }
         public int B { get; set; }
         public int FurniId { get; set; }
         public int C { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public int D { get; set; }
         public int E { get; set; }
         public int F { get; set; }
@@ -30,8 +29,7 @@ namespace CDHelper
         public static OfferData Parse(in PacketReader reader)
         {
             return new OfferData
-            {
-                Z = reader.ReadInt(),
+            {             
                 OfferIdPacket = reader.ReadInt(),
                 A = reader.ReadInt(),
                 B = reader.ReadInt(),
