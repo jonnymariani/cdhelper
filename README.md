@@ -63,7 +63,11 @@ All commands start with <strong>":cd"</strong>
 - [ ] Whatever other crazy ideas I might come up with
 
 <br>
+
 <hr>
+<h5>The translations were made using artificial intelligence. If you find anything wrong in your language, let me know!</h5>
+<hr>
+
 <br>
 
-Special thanks to <a href="https://github.com/alynva" target="_blank">Alynva</a> for helping me take <s>the first step</s> so many steps.    
+Special thanks to <a href="https://github.com/alynva" target="_blank">Alynva</a> for helping me take <s>the first step</s> so many steps. 🍀
