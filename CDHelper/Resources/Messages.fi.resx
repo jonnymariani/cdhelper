@@ -129,8 +129,23 @@
   <data name="ExampleUsage" xml:space="preserve">
     <value>Esimerkkikäyttö</value>
   </data>
+  <data name="Export" xml:space="preserve">
+    <value>Vie kokoelmasi .txt-tiedostoon</value>
+  </data>
+  <data name="ExportAll" xml:space="preserve">
+    <value>Vie kaikista yllä olevista vaihtoehdoista</value>
+  </data>
   <data name="ExportingToFile" xml:space="preserve">
     <value>Viedään tiedostoon</value>
+  </data>
+  <data name="ExportInv" xml:space="preserve">
+    <value>Vie vain inventaariosta</value>
+  </data>
+  <data name="ExportJuke" xml:space="preserve">
+    <value>Vie vain jukeboksista</value>
+  </data>
+  <data name="ExportRoom" xml:space="preserve">
+    <value>Vie vain huoneesta</value>
   </data>
   <data name="ExtensionDescription" xml:space="preserve">
     <value>CD Helper on laajennus, joka auttaa sinua hallitsemaan ja löytämään Habbon CD-levyjä helpommin</value>

@@ -97,11 +97,56 @@ namespace CDHelper.Resources {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Exports your collection to .txt file.
+        /// </summary>
+        public static string Export {
+            get {
+                return ResourceManager.GetString("Export", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Exports from all above.
+        /// </summary>
+        public static string ExportAll {
+            get {
+                return ResourceManager.GetString("ExportAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Exporting to file.
         /// </summary>
         public static string ExportingToFile {
             get {
                 return ResourceManager.GetString("ExportingToFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Exports only from inventory.
+        /// </summary>
+        public static string ExportInv {
+            get {
+                return ResourceManager.GetString("ExportInv", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Exports only from the jukebox.
+        /// </summary>
+        public static string ExportJuke {
+            get {
+                return ResourceManager.GetString("ExportJuke", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Exports only from the room.
+        /// </summary>
+        public static string ExportRoom {
+            get {
+                return ResourceManager.GetString("ExportRoom", resourceCulture);
             }
         }
         

@@ -62,8 +62,7 @@ namespace CDHelper.Services
             string badge = NotificationBadges.Alert;
             string title = LanguageHelper.Get(Messages.Info);
             string message = "\n";
-
-            //message += "<b>CD Helper</b>\n";
+            
             message += $"<small>{LanguageHelper.Get(Messages.ExtensionDescription)}.</small>\n\n";
 
             message += $"<b>{LanguageHelper.Get(Messages.CommandList)}:</b>\n\n";
@@ -72,7 +71,12 @@ namespace CDHelper.Services
             message += $"<b>{Commands.GetCdInfoFromMarket}</b> - {LanguageHelper.Get(Messages.RetrievesNameMarketplace)}.\n\n";
             message += $"<b>{Commands.Help}</b> - {LanguageHelper.Get(Messages.OpensThisScreen)}\n\n";
 
-            // Add section with generic usage example
+            message += $"<b>{Commands.Export}</b> - {LanguageHelper.Get(Messages.Export)}\n\n";
+            message += $"\t<b>{Commands.Export} {ExportSuffix.Inventory}</b> - {LanguageHelper.Get(Messages.ExportInv)}\n";
+            message += $"\t<b>{Commands.Export} {ExportSuffix.Room}</b> - {LanguageHelper.Get(Messages.ExportRoom)}\n";
+            message += $"\t<b>{Commands.Export} {ExportSuffix.Jukebox}</b> - {LanguageHelper.Get(Messages.ExportJuke)}\n";
+            message += $"\t<b>{Commands.Export}</b> / <b>{Commands.Export} {ExportSuffix.Jukebox}</b> - {LanguageHelper.Get(Messages.ExportAll)}\n";
+                        
             message += $"<b>{LanguageHelper.Get(Messages.ExampleUsage)}:</b>\n\n";
             message += $"{LanguageHelper.Get(Messages.ToUseCommands)}:\n\n";
             message += $"<i><b>{Commands.PreFix} {LanguageHelper.Get(Messages.Command)}</b></i>\n";

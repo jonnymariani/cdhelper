@@ -129,8 +129,23 @@
   <data name="ExampleUsage" xml:space="preserve">
     <value>Ejemplo de Uso</value>
   </data>
+  <data name="Export" xml:space="preserve">
+    <value>Exporta tu colección a un archivo .txt</value>
+  </data>
+  <data name="ExportAll" xml:space="preserve">
+    <value>Exporta desde todas las opciones anteriores</value>
+  </data>
   <data name="ExportingToFile" xml:space="preserve">
     <value>Exportando a archivo</value>
+  </data>
+  <data name="ExportInv" xml:space="preserve">
+    <value>Exporta solo desde el inventario</value>
+  </data>
+  <data name="ExportJuke" xml:space="preserve">
+    <value>Exporta solo desde el jukebox</value>
+  </data>
+  <data name="ExportRoom" xml:space="preserve">
+    <value>Exporta solo desde la habitación</value>
   </data>
   <data name="ExtensionDescription" xml:space="preserve">
     <value>CD Helper es una extensión para ayudarte a administrar y descubrir CDs en Habbo más fácilmente</value>

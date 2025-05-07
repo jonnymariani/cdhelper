@@ -129,8 +129,23 @@
   <data name="ExampleUsage" xml:space="preserve">
     <value>Örnek Kullanım</value>
   </data>
+  <data name="Export" xml:space="preserve">
+    <value>Koleksiyonunuzu bir .txt dosyasına aktarır</value>
+  </data>
+  <data name="ExportAll" xml:space="preserve">
+    <value>Yukarıdakilerin tümünden dışa aktarır</value>
+  </data>
   <data name="ExportingToFile" xml:space="preserve">
     <value>Dosyaya aktarılıyor</value>
+  </data>
+  <data name="ExportInv" xml:space="preserve">
+    <value>Yalnızca envanterden dışa aktarır</value>
+  </data>
+  <data name="ExportJuke" xml:space="preserve">
+    <value>Yalnızca müzik kutusundan dışa aktarır</value>
+  </data>
+  <data name="ExportRoom" xml:space="preserve">
+    <value>Yalnızca odadan dışa aktarır</value>
   </data>
   <data name="ExtensionDescription" xml:space="preserve">
     <value>CD Helper, Habbo'daki CD'leri daha kolay yönetmenize ve keşfetmenize yardımcı olan bir eklentidir</value>
