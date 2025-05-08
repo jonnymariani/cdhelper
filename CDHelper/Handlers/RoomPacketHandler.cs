@@ -1,6 +1,7 @@
 ﻿using CDHelper.Coordinators;
 using CDHelper.Models.PacketData;
 using CDHelper.Services;
+using CDHelper.Structs;
 using Xabbo;
 
 namespace CDHelper.Handlers
@@ -31,7 +32,11 @@ namespace CDHelper.Handlers
 
         public void HandleRoomEntryInfoPacket(Intercept e)
         {
-            _ = _roomDataService.CheckForCds();
+            if (ConfigManager.Get<bool>(ConfigKeys.AutoSearchEnabled))
+            {
+                _ = _roomDataService.CheckForCds();
+            }
+
         }
 
     }

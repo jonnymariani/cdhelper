@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AndMore" xml:space="preserve">
+    <value>ve {0} daha</value>
+  </data>
   <data name="CDsFound" xml:space="preserve">
     <value>{0} CD bulundu!</value>
   </data>
@@ -173,6 +176,9 @@
   </data>
   <data name="RoomNotBeingTracked" xml:space="preserve">
     <value>Oda durumu izlenmiyor. Lütfen odaya tekrar girin ve yeniden deneyin</value>
+  </data>
+  <data name="ShowingXofYCds" xml:space="preserve">
+    <value>{0} de {1} CD gösteriliyor. Daha fazlasını görmek için {2} deneyin</value>
   </data>
   <data name="SuccessfullyExportedCDs" xml:space="preserve">
     <value>{0} CD başarıyla dışa aktarıldı</value>

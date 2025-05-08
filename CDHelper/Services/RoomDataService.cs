@@ -51,13 +51,22 @@ namespace CDHelper.Services
             return list;
         }
 
-
+        /// <summary>
+        /// Checks for CDs both in the current room and in the jukebox
+        /// Verifica CDs tanto no quarto quanto no jukebox
+        /// </summary>
         public async Task CheckForCds()
         {
             var cds = new List<CdData>();
 
+            // Adds CDs found (if any)
+            // Adiciona CDs encontrados (se houver)
             cds.AddRange(GetRoomCds() ?? []);
             cds.AddRange(await _jukeboxService.GetJukeboxCds() ?? []);
+
+
+            // Sends notification 
+            // Envia notificação 
 
             //_notificationService.SendCdsCountNotification(cds.Count);
 

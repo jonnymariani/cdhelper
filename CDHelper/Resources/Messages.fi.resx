@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AndMore" xml:space="preserve">
+    <value>ja {0} lisää</value>
+  </data>
   <data name="CDsFound" xml:space="preserve">
     <value>{0} CD:t löydetty!</value>
   </data>
@@ -173,6 +176,9 @@
   </data>
   <data name="RoomNotBeingTracked" xml:space="preserve">
     <value>Huoneen tilaa ei seurata. Mene huoneeseen uudelleen ja yritä uudelleen</value>
+  </data>
+  <data name="ShowingXofYCds" xml:space="preserve">
+    <value>Näytetään {0} {1} CD:tä. Näet lisää kokeilemalla {2}</value>
   </data>
   <data name="SuccessfullyExportedCDs" xml:space="preserve">
     <value>{0} CD:t viety onnistuneesti</value>

@@ -37,8 +37,9 @@ namespace CDHelper.Services
         {
             if (cds?.Any() == true) // Checks if there are any CDs
             {
+                int quantity = 20;
 
-                var cdToList = cds.Take(10);
+                var cdToList = cds.Take(quantity);
 
                 // Builds the message with the list of found CDs
                 // Monta a mensagem com a lista de CDs encontrados
@@ -54,24 +55,23 @@ namespace CDHelper.Services
                        ? $"<b>{cd.Title}{authorDisplay}</b>"
                        : $"{cd.Title}{authorDisplay}";
 
-                    messageBuilder.AppendLine($"\t{formatted}");
+                    messageBuilder.AppendLine($"{(modal ? "\t" : "")}{formatted}");
                 }
 
                 if (modal)
                 {
-                    messageBuilder.Append("\n  ");
+                    //Footer
 
-                    if (cds.Count() > 10)
+                    //messageBuilder.Append("\n  ");
+
+                    if (cds.Count() > quantity)
                     {
+                        messageBuilder.AppendLine($"\t... {LanguageHelper.Get(Messages.AndMore, cds.Count() - quantity)}");
                         messageBuilder.Append("\n  ");
-                        string listed = $"<i>Listed 10 of {cds.Count()} cds. To see more, try {Commands.PreFix} {Commands.Export}</i>";
+                        string listed = $"<i>{LanguageHelper.Get(Messages.ShowingXofYCds, quantity, cds.Count(), $"{Commands.PreFix} {Commands.Export}")}</i>";
                         messageBuilder.AppendLine(listed);
-                        messageBuilder.Append("\n  ");
                     }
-
-
-
-                    messageBuilder.AppendLine("\n  ");
+                  
                 }
 
                 string message = messageBuilder.ToString();
@@ -150,7 +150,7 @@ namespace CDHelper.Services
         public void SendExportingNotification()
         {
             string notification = $"{LanguageHelper.Get(Messages.ExportingToFile)}...";
-            string badge = NotificationBadges.FileExportInProgress;
+            string badge = NotificationBadges.InProgress;
 
             SendToastNotification(notification, badge);
         }

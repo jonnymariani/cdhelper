@@ -48,6 +48,13 @@ namespace CDHelper.Handlers
 
             switch (arg1)
             {
+                //Toggle autosearch
+                //Altera autosearch
+                case Commands.AutoSearch:
+                    bool AutoSearchEnabled = ConfigManager.Toggle(ConfigKeys.AutoSearchEnabled);
+                    _notificationService.SendToastNotification($"Auto search is ENABLED", NotificationBadges.Alert);
+                    break;
+
                 //Lists CDs from the jukebox
                 //Lista CD's do jukebox
                 case Commands.GetJukeboxCds:
@@ -113,7 +120,7 @@ namespace CDHelper.Handlers
 
                 default:
                     _notificationService.SendToastNotification(
-                        LanguageHelper.Get(Messages.UnknownCommand, arg1, $"{Commands.PreFix} {Commands.Help}"),                      
+                        LanguageHelper.Get(Messages.UnknownCommand, arg1, $"{Commands.PreFix} {Commands.Help}"),
                         NotificationBadges.Alert
                     );
                     break;

@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AndMore" xml:space="preserve">
+    <value>and {0} more</value>
+  </data>
+  <data name="AndMore1" xml:space="preserve">
+    <value>und {0} mehr</value>
+  </data>
   <data name="CDsFound" xml:space="preserve">
     <value>{0} CD's Found!</value>
   </data>
@@ -173,6 +179,12 @@
   </data>
   <data name="RoomNotBeingTracked" xml:space="preserve">
     <value>Room state is not being tracked, please re-enter the room and try again</value>
+  </data>
+  <data name="ShowingXofYCds" xml:space="preserve">
+    <value>Showing {0} of {1} CDs. To see more, try {2}</value>
+  </data>
+  <data name="ShowingXofYCds1" xml:space="preserve">
+    <value>Zeige {0} von {1} CDs. Um mehr zu sehen, versuche {2}</value>
   </data>
   <data name="SuccessfullyExportedCDs" xml:space="preserve">
     <value>Successfully exported {0} CDs</value>

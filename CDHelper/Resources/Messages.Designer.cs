@@ -61,6 +61,24 @@ namespace CDHelper.Resources {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a and {0} more.
+        /// </summary>
+        public static string AndMore {
+            get {
+                return ResourceManager.GetString("AndMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a und {0} mehr.
+        /// </summary>
+        public static string AndMore1 {
+            get {
+                return ResourceManager.GetString("AndMore1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a {0} CD&apos;s Found!.
         /// </summary>
         public static string CDsFound {
@@ -228,6 +246,24 @@ namespace CDHelper.Resources {
         public static string RoomNotBeingTracked {
             get {
                 return ResourceManager.GetString("RoomNotBeingTracked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Showing {0} of {1} CDs. To see more, try {2}.
+        /// </summary>
+        public static string ShowingXofYCds {
+            get {
+                return ResourceManager.GetString("ShowingXofYCds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Zeige {0} von {1} CDs. Um mehr zu sehen, versuche {2}.
+        /// </summary>
+        public static string ShowingXofYCds1 {
+            get {
+                return ResourceManager.GetString("ShowingXofYCds1", resourceCulture);
             }
         }
         

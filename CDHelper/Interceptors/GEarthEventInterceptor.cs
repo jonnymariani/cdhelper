@@ -16,6 +16,7 @@ namespace CDHelper.Interceptors
         public static void OnExtensionInitialized(InitializedEventArgs e)
         {
             Console.WriteLine("Extension initialized.");
+            ConfigManager.Load();
         }
 
         /// <summary>
@@ -57,11 +58,26 @@ namespace CDHelper.Interceptors
         /// Handles the extension activated event
         /// Manipula o evento de ativacao da extensao
         /// </summary>
-        public static void OnExtensionActivated(NotificationService notificationHandler)
+        public static void OnExtensionActivated(NotificationService notificationService)
         {
             Console.WriteLine("Extension activated!");
 
-            notificationHandler.SendToastNotification($"{LanguageHelper.Get(Messages.LoadedSuccessfully)}!", NotificationBadges.Loaded);
+            notificationService.SendToastNotification($"{LanguageHelper.Get(Messages.LoadedSuccessfully)}!", NotificationBadges.Loaded);
+
+
+            //Config
+            bool AutoSearchEnabled = ConfigManager.Get<bool>(ConfigKeys.AutoSearchEnabled);
+
+            notificationService.SendToastNotification($"{LanguageHelper.Get(Messages.LoadedSuccessfully)}!", NotificationBadges.Loaded);
+
+            if (AutoSearchEnabled)
+            {
+                notificationService.SendToastNotification($"Auto search is ENABLED", NotificationBadges.Alert);
+            }
+
+
+
+
         }
     }
 }
