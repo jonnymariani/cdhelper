@@ -16,38 +16,78 @@ namespace CDHelper.Services
     {
         private readonly GEarthExtension _extension = extension;
 
+        public void SendCdsCountNotification(int count)
+        {
+            // Create the notification message
+            // Cria a mensagem de notificação
+            string notification = LanguageHelper.Get(Messages.CDsFound, count);
+            SendToastNotification(notification, NotificationBadges.CdsFound);
+        }
+
         public void SendMarketNotification(CdData cdData)
         {
             // Create the notification message
             // Cria a mensagem de notificação
             string notification = LanguageHelper.Get(Messages.OfferBy, cdData.Title, cdData.Author);
-            
+
             SendToastNotification(notification, NotificationBadges.Market);
         }
 
-        public void SendJukeboxCdsNotification(IEnumerable<CdData>? cds)
+        public void SendCdsFoundNotification(IEnumerable<CdData>? cds, string badge, bool modal = true)
         {
             if (cds?.Any() == true) // Checks if there are any CDs
             {
+
+                var cdToList = cds.Take(10);
+
                 // Builds the message with the list of found CDs
                 // Monta a mensagem com a lista de CDs encontrados
                 var messageBuilder = new StringBuilder("\n");
 
-                foreach (var cd in cds)
+                foreach (var cd in cdToList)
                 {
                     // Add each CD to the message with proper formatting
-                    // Adiciona cada CD à mensagem com a formatação adequada
+                    // Adiciona cada CD a mensagem com a formatação adequada
                     string authorDisplay = string.IsNullOrEmpty(cd.Author) ? "" : $" - {cd.Author}";
-                    messageBuilder.AppendLine($"\t<b>{cd.Title}{authorDisplay}</b>");
+
+                    string formatted = modal
+                       ? $"<b>{cd.Title}{authorDisplay}</b>"
+                       : $"{cd.Title}{authorDisplay}";
+
+                    messageBuilder.AppendLine($"\t{formatted}");
                 }
 
-                messageBuilder.Append("\n  ");
+                if (modal)
+                {
+                    messageBuilder.Append("\n  ");
+
+                    if (cds.Count() > 10)
+                    {
+                        messageBuilder.Append("\n  ");
+                        string listed = $"<i>Listed 10 of {cds.Count()} cds. To see more, try {Commands.PreFix} {Commands.Export}</i>";
+                        messageBuilder.AppendLine(listed);
+                        messageBuilder.Append("\n  ");
+                    }
+
+
+
+                    messageBuilder.AppendLine("\n  ");
+                }
 
                 string message = messageBuilder.ToString();
 
                 // Sends the notification with the found CDs
                 // Envia a notificação com os CDs encontrados
-                SendModalNotification(LanguageHelper.Get(Messages.CDsFound, cds.Count()), message, NotificationBadges.Jukebox);
+
+                if (modal)
+                {
+                    SendModalNotification(LanguageHelper.Get(Messages.CDsFound, cds.Count()), message, badge);
+                }
+                else
+                {
+                    SendToastNotification(message, badge);
+                }
+
             }
             else
             {
@@ -62,7 +102,7 @@ namespace CDHelper.Services
             string badge = NotificationBadges.Alert;
             string title = LanguageHelper.Get(Messages.Info);
             string message = "\n";
-            
+
             message += $"<small>{LanguageHelper.Get(Messages.ExtensionDescription)}.</small>\n\n";
 
             message += $"<b>{LanguageHelper.Get(Messages.CommandList)}:</b>\n\n";
@@ -76,7 +116,7 @@ namespace CDHelper.Services
             message += $"\t<b>{Commands.Export} {ExportSuffix.Room}</b> - {LanguageHelper.Get(Messages.ExportRoom)}\n";
             message += $"\t<b>{Commands.Export} {ExportSuffix.Jukebox}</b> - {LanguageHelper.Get(Messages.ExportJuke)}\n";
             message += $"\t<b>{Commands.Export}</b> / <b>{Commands.Export} {ExportSuffix.Jukebox}</b> - {LanguageHelper.Get(Messages.ExportAll)}\n";
-                        
+
             message += $"<b>{LanguageHelper.Get(Messages.ExampleUsage)}:</b>\n\n";
             message += $"{LanguageHelper.Get(Messages.ToUseCommands)}:\n\n";
             message += $"<i><b>{Commands.PreFix} {LanguageHelper.Get(Messages.Command)}</b></i>\n";
@@ -100,7 +140,7 @@ namespace CDHelper.Services
         }
 
         public void SendExportSuccessNotification(int count)
-        {           
+        {
             string notification = LanguageHelper.Get(Messages.SuccessfullyExportedCDs, count);
             string badge = NotificationBadges.FileExportSuccess;
 
@@ -108,7 +148,7 @@ namespace CDHelper.Services
         }
 
         public void SendExportingNotification()
-        {           
+        {
             string notification = $"{LanguageHelper.Get(Messages.ExportingToFile)}...";
             string badge = NotificationBadges.FileExportInProgress;
 
@@ -138,6 +178,6 @@ namespace CDHelper.Services
                    "image", badge
                );
         }
-               
+
     }
 }

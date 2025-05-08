@@ -36,6 +36,10 @@ namespace CDHelper.Interceptors
 
             _extension.Intercept(Out.Chat, _chatHandler.HandleChatPacket);
             _extension.Intercept(In.RoomReady, _roomPacketHandler.HandleRoomReadyPacket);
+
+            // Using this packet as a trigger after the room has been loaded
+            //Usando este pacote como gatilho apos o quarto ser carregado
+            _extension.Intercept(In.RoomRating, _roomPacketHandler.HandleRoomEntryInfoPacket);
         }
     }
 }

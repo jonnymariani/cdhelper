@@ -56,11 +56,11 @@ namespace CDHelper
             _jukeboxService = new JukeboxService(_extension, _notificationService);
             _furniHelper = new FurniHelper();
             _inventoryService = new InventoryDataService(_extension, _notificationService, _inventoryManager, _jukeboxService, _furniHelper);
-            _roomDataService = new RoomDataService(_notificationService, _roomManager, _furniHelper);
+            _roomDataService = new RoomDataService(_notificationService, _roomManager, _furniHelper, _jukeboxService);
             _exportService = new ExportService(_notificationService, _roomDataService, _jukeboxService, _inventoryService);
 
             _chatHandler = new ChatCommandHandler(_notificationService, _jukeboxService, _exportService);
-            _roomPacketHandler = new RoomPacketHandler();
+            _roomPacketHandler = new RoomPacketHandler(_roomDataService);
 
             _packetInterceptor = new PacketInterceptor(_extension, _notificationService, _gameDataManager, _chatHandler, _roomPacketHandler);
         }
