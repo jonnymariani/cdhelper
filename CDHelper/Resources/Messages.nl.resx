@@ -120,6 +120,12 @@
   <data name="AndMore" xml:space="preserve">
     <value>en {0} meer</value>
   </data>
+  <data name="AutoSearchDisabled" xml:space="preserve">
+    <value>Automatisch zoeken uitgeschakeld</value>
+  </data>
+  <data name="AutoSearchEnabled" xml:space="preserve">
+    <value>Automatisch zoeken ingeschakeld</value>
+  </data>
   <data name="CDsFound" xml:space="preserve">
     <value>{0} cd's gevonden!</value>
   </data>
@@ -155,6 +161,9 @@
   </data>
   <data name="Info" xml:space="preserve">
     <value>Informatie</value>
+  </data>
+  <data name="LanguageChangedTo" xml:space="preserve">
+    <value>Taal gewijzigd naar</value>
   </data>
   <data name="LoadedSuccessfully" xml:space="preserve">
     <value>CD Helper succesvol geladen</value>

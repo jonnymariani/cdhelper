@@ -120,6 +120,12 @@
   <data name="AndMore" xml:space="preserve">
     <value>e {0} in più</value>
   </data>
+  <data name="AutoSearchDisabled" xml:space="preserve">
+    <value>Ricerca automatica disattivata</value>
+  </data>
+  <data name="AutoSearchEnabled" xml:space="preserve">
+    <value>Ricerca automatica attivata</value>
+  </data>
   <data name="CDsFound" xml:space="preserve">
     <value>Trovati {0} CD!</value>
   </data>
@@ -155,6 +161,9 @@
   </data>
   <data name="Info" xml:space="preserve">
     <value>Informazioni</value>
+  </data>
+  <data name="LanguageChangedTo" xml:space="preserve">
+    <value>Lingua cambiata in</value>
   </data>
   <data name="LoadedSuccessfully" xml:space="preserve">
     <value>CD Helper caricato con successo</value>

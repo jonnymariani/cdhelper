@@ -120,6 +120,12 @@
   <data name="AndMore" xml:space="preserve">
     <value>ja {0} lisää</value>
   </data>
+  <data name="AutoSearchDisabled" xml:space="preserve">
+    <value>Automaattinen haku poistettu käytöstä</value>
+  </data>
+  <data name="AutoSearchEnabled" xml:space="preserve">
+    <value>Automaattinen haku käytössä</value>
+  </data>
   <data name="CDsFound" xml:space="preserve">
     <value>{0} CD:t löydetty!</value>
   </data>
@@ -155,6 +161,9 @@
   </data>
   <data name="Info" xml:space="preserve">
     <value>Tiedot</value>
+  </data>
+  <data name="LanguageChangedTo" xml:space="preserve">
+    <value>Kieli vaihdettu kieleksi</value>
   </data>
   <data name="LoadedSuccessfully" xml:space="preserve">
     <value>CD Helper ladattu onnistuneesti</value>

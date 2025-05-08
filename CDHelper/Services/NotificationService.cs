@@ -115,7 +115,7 @@ namespace CDHelper.Services
             message += $"\t<b>{Commands.Export} {ExportSuffix.Inventory}</b> - {LanguageHelper.Get(Messages.ExportInv)}\n";
             message += $"\t<b>{Commands.Export} {ExportSuffix.Room}</b> - {LanguageHelper.Get(Messages.ExportRoom)}\n";
             message += $"\t<b>{Commands.Export} {ExportSuffix.Jukebox}</b> - {LanguageHelper.Get(Messages.ExportJuke)}\n";
-            message += $"\t<b>{Commands.Export}</b> / <b>{Commands.Export} {ExportSuffix.Jukebox}</b> - {LanguageHelper.Get(Messages.ExportAll)}\n";
+            message += $"\t<b>{Commands.Export}</b> / <b>{Commands.Export} {ExportSuffix.Jukebox}</b> - {LanguageHelper.Get(Messages.ExportAll)}\n\n";
 
             message += $"<b>{LanguageHelper.Get(Messages.ExampleUsage)}:</b>\n\n";
             message += $"{LanguageHelper.Get(Messages.ToUseCommands)}:\n\n";
@@ -155,6 +155,14 @@ namespace CDHelper.Services
             SendToastNotification(notification, badge);
         }
 
+        public void SendUnknownCommandNotification(string arg1, string arg2)
+        {
+            SendToastNotification(
+                $"{LanguageHelper.Get(Messages.UnknownCommand, $"{Commands.PreFix} {arg1} {arg2}", $"{Commands.PreFix} {Commands.Help}")}",
+                NotificationBadges.Alert
+            );
+        }
+
         /// <summary>
         /// Sends a custom notification with a text and badge
         /// Envia uma notificacao com texto e emblema
@@ -177,7 +185,6 @@ namespace CDHelper.Services
                    "message", text,
                    "image", badge
                );
-        }
-
+        }        
     }
 }

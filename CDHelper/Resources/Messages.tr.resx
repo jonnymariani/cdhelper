@@ -120,6 +120,12 @@
   <data name="AndMore" xml:space="preserve">
     <value>ve {0} daha</value>
   </data>
+  <data name="AutoSearchDisabled" xml:space="preserve">
+    <value>Otomatik arama devre dışı</value>
+  </data>
+  <data name="AutoSearchEnabled" xml:space="preserve">
+    <value>Otomatik arama etkin</value>
+  </data>
   <data name="CDsFound" xml:space="preserve">
     <value>{0} CD bulundu!</value>
   </data>
@@ -155,6 +161,9 @@
   </data>
   <data name="Info" xml:space="preserve">
     <value>Bilgi</value>
+  </data>
+  <data name="LanguageChangedTo" xml:space="preserve">
+    <value>Dil şu şekilde değiştirildi</value>
   </data>
   <data name="LoadedSuccessfully" xml:space="preserve">
     <value>CD Helper başarıyla yüklendi</value>

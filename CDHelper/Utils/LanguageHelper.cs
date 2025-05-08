@@ -1,4 +1,6 @@
 ﻿using System.Globalization;
+using CDHelper.Services;
+using CDHelper.Structs;
 
 namespace CDHelper.Utils
 {
@@ -46,6 +48,8 @@ namespace CDHelper.Utils
                 cultureCode = "tr";
             else
                 cultureCode = "en"; //fallback
+
+            ConfigManager.Set(ConfigKeys.Language, cultureCode);
 
             SetThreadLanguage(cultureCode);
         }

@@ -79,6 +79,24 @@ namespace CDHelper.Resources {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Auto-search disabled.
+        /// </summary>
+        public static string AutoSearchDisabled {
+            get {
+                return ResourceManager.GetString("AutoSearchDisabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Auto-search enabled.
+        /// </summary>
+        public static string AutoSearchEnabled {
+            get {
+                return ResourceManager.GetString("AutoSearchEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a {0} CD&apos;s Found!.
         /// </summary>
         public static string CDsFound {
@@ -183,6 +201,15 @@ namespace CDHelper.Resources {
         public static string Info {
             get {
                 return ResourceManager.GetString("Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Language changed to.
+        /// </summary>
+        public static string LanguageChangedTo {
+            get {
+                return ResourceManager.GetString("LanguageChangedTo", resourceCulture);
             }
         }
         
