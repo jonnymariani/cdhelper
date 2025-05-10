@@ -1,4 +1,3 @@
-
 ![GitHub repo size](https://img.shields.io/github/issues/jonnymariani/cdhelper?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/jonnymariani/cdhelper?style=for-the-badge)
 <br>
@@ -29,60 +28,44 @@
 
 ## Command List
 
-All commands start with <strong>":cd"</strong>
+All commands start with **`:cd`**
 
-* <strong>juke</strong> - Retrieves the list of CDs from the room's jukebox.
+* **`juke`** - Retrieves the list of CDs from the room's jukebox.
 
-* <strong>market</strong> - Retrieves the name of the current CD from the marketplace.
+* **`market`** - Retrieves the name of the current CD from the marketplace.
 
-* <strong>autosearch</strong> - Toggle auto-search mode on or off.
+* **`autosearch`** - Toggle auto-search mode on or off.
   * Automatically looks for CDs when you enter a room, be it on the floor or in a jukebox. Especially handy when exploring rooms with items for sale.
 
-* <strong>export</strong> - Exports your collection to .txt file 
-  * <strong>export inv</strong> - Exports only from inventory 
-  * <strong>export room</strong> - Exports only from the room
-  * <strong>export juke</strong> - Exports only from the jukebox
-  * <strong>export</strong> or <strong>export all</strong> - Exports from all above
+* **`export`** - Exports your collection to .txt file 
+  * **`export inv`** - Exports only from inventory 
+  * **`export room`** - Exports only from the room
+  * **`export juke`** - Exports only from the jukebox
+  * **`export`** or **`export all`** - Exports from all above
 
-* <strong>language</strong> - Switches the extension's language
-  * <strong>language pt</strong> - Set language to Portuguese (Brazil)
-  * <strong>language en</strong> - Set language to English
-  * <strong>language es</strong> - Set language to Spanish
-  * <strong>language fi</strong> - Set language to Finnish
-  * <strong>language it</strong> - Set language to Italian
-  * <strong>language nl</strong> - Set language to Dutch
-  * <strong>language de</strong> - Set language to German
-  * <strong>language fr</strong> - Set language to French
-  * <strong>language tr</strong> - Set language to Turkish
+* **`language`** - Switches the extension's language
+  * **`language pt`** - Set language to Portuguese (Brazil)
+  * **`language en`** - Set language to English
+  * **`language es`** - Set language to Spanish
+  * **`language fi`** - Set language to Finnish
+  * **`language it`** - Set language to Italian
+  * **`language nl`** - Set language to Dutch
+  * **`language de`** - Set language to German
+  * **`language fr`** - Set language to French
+  * **`language tr`** - Set language to Turkish
 
-
-* <strong>help</strong> - Opens the help screen.
+* **`help`** - Opens the help screen.
   
 <br>
 
 ## Example Usage:
 #### To use the commands, type in the chat like this:
-<strong>:cd command</strong>
+**`:cd command`**
 * Examples:
-  * <strong>:cd market</strong>
-  * <strong>:cd export room</strong>
+  * **`:cd market`**
+  * **`:cd export room`**
 <br>
 
-## TODO List
-- [x] Remember that making mistakes is part of the journey ✔️
-- [x] Display CD currently listed in the marketplace ✔️
-- [x] Display CD's contained in jukebox ✔️
-- [x] Export a list of your CD collection ✔️
-- [x] Option to automatically list the CDs in a room when you enter (useful for finding CDs in trading rooms) ✔️
-- [ ] Download the MP3 files from your CD collection
-- [ ] Whatever other crazy ideas I might come up with
+## Special Thanks 🙏
 
-<br>
-
-<hr>
-<h5>Translations were made using AI. Spot something off in your language? Let me know!</h5>
-<hr>
-
-<br>
-
-Special thanks to <a href="https://github.com/alynva" target="_blank">Alynva</a> for helping me take <s>the first step</s> so many steps. 🍀
+Special thanks to [Alynva](https://github.com/alynva) for the support! 🍀
