@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AndMore" xml:space="preserve">
+    <value>e mais {0}</value>
+  </data>
+  <data name="AutoSearchDisabled" xml:space="preserve">
+    <value>Busca automática desativada</value>
+  </data>
+  <data name="AutoSearchEnabled" xml:space="preserve">
+    <value>Busca automática ativada</value>
+  </data>
   <data name="CDsFound" xml:space="preserve">
     <value>{0} CDs encontrados!</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Altera o idioma da extensão</value>
   </data>
   <data name="Command" xml:space="preserve">
     <value>comando</value>
@@ -153,6 +165,9 @@
   <data name="Info" xml:space="preserve">
     <value>Informações</value>
   </data>
+  <data name="LanguageChangedTo" xml:space="preserve">
+    <value>Idioma alterado para</value>
+  </data>
   <data name="LoadedSuccessfully" xml:space="preserve">
     <value>CD Helper foi carregado com sucesso</value>
   </data>
@@ -174,8 +189,14 @@
   <data name="RoomNotBeingTracked" xml:space="preserve">
     <value>O estado do quarto não está sendo rastreado. Por favor, entre novamente no quarto e tente novamente</value>
   </data>
+  <data name="ShowingXofYCds" xml:space="preserve">
+    <value>Mostrando {0} de {1} CDs. Para ver mais, tente {2}</value>
+  </data>
   <data name="SuccessfullyExportedCDs" xml:space="preserve">
     <value>{0} CDs exportados com sucesso</value>
+  </data>
+  <data name="SupportedLanguages" xml:space="preserve">
+    <value>Idiomas suportados</value>
   </data>
   <data name="ToUseCommands" xml:space="preserve">
     <value>Para usar os comandos, digite-os no chat da seguinte forma</value>

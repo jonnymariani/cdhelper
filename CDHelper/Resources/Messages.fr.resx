@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AndMore" xml:space="preserve">
+    <value>et {0} de plus</value>
+  </data>
+  <data name="AutoSearchDisabled" xml:space="preserve">
+    <value>Recherche automatique désactivée</value>
+  </data>
+  <data name="AutoSearchEnabled" xml:space="preserve">
+    <value>Recherche automatique activée</value>
+  </data>
   <data name="CDsFound" xml:space="preserve">
     <value>{0} CD trouvés !</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Change la langue de l’extension</value>
   </data>
   <data name="Command" xml:space="preserve">
     <value>commande</value>
@@ -153,6 +165,9 @@
   <data name="Info" xml:space="preserve">
     <value>Informations</value>
   </data>
+  <data name="LanguageChangedTo" xml:space="preserve">
+    <value>Langue changée en</value>
+  </data>
   <data name="LoadedSuccessfully" xml:space="preserve">
     <value>CD Helper chargé avec succès</value>
   </data>
@@ -174,8 +189,14 @@
   <data name="RoomNotBeingTracked" xml:space="preserve">
     <value>L'état de la pièce n'est pas suivi. Veuillez entrer à nouveau dans la pièce et réessayer</value>
   </data>
+  <data name="ShowingXofYCds" xml:space="preserve">
+    <value>Affichage de {0} sur {1} CDs. Pour en voir plus, essayez {2}</value>
+  </data>
   <data name="SuccessfullyExportedCDs" xml:space="preserve">
     <value>{0} CD exportés avec succès</value>
+  </data>
+  <data name="SupportedLanguages" xml:space="preserve">
+    <value>Langues prises en charge</value>
   </data>
   <data name="ToUseCommands" xml:space="preserve">
     <value>Pour utiliser les commandes, tapez-les dans le chat comme suit</value>

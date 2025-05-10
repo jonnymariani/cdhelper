@@ -119,7 +119,7 @@ namespace CDHelper.Services
         {
             var cds = await GetJukeboxCds();
 
-            _notificationService.SendJukeboxCdsNotification(cds);
+            _notificationService.SendCdsFoundNotification(cds, NotificationBadges.Jukebox);
         }
 
     }

@@ -48,6 +48,13 @@ namespace CDHelper.Handlers
 
             switch (arg1)
             {
+                //Toggle autosearch
+                //Altera autosearch
+                case Commands.AutoSearch:
+                    bool AutoSearchEnabled = ConfigManager.Toggle(ConfigKeys.AutoSearchEnabled);
+                    _notificationService.SendToastNotification(LanguageHelper.Get(AutoSearchEnabled ? Messages.AutoSearchEnabled : Messages.AutoSearchDisabled), NotificationBadges.Alert);
+                    break;
+
                 //Lists CDs from the jukebox
                 //Lista CD's do jukebox
                 case Commands.GetJukeboxCds:
@@ -101,19 +108,33 @@ namespace CDHelper.Handlers
                             // Argumento invalido
                             // Invalid argument
                             default:
-                                _notificationService.SendToastNotification(
-                                    $"{LanguageHelper.Get(Messages.UnknownCommand, $"{Commands.PreFix} {arg1} {arg2}", $"{Commands.PreFix} {Commands.Help}")}",
-                                    NotificationBadges.Alert
-                                );
+                                _notificationService.SendUnknownCommandNotification(arg1, arg2);
                                 break;
                         }
 
                         break;
                     }
 
+                case Commands.Language:
+
+                    // If there is a third argument and it's an allowed language, set the language
+                    // Se ha um terceiro argumento e ele é um idioma permitido, define o idioma
+                    if (parts.Length > 2 && LanguageHelper.allowedLanguages.Contains(parts[2]))
+                    {
+                        LanguageHelper.SetLanguage(parts[2]);
+                        _notificationService.SendToastNotification($"{LanguageHelper.Get(Messages.LanguageChangedTo)} {parts[2].ToUpper()}", NotificationBadges.Alert);
+                    }
+                    else
+                    {                        
+                        var arg2 = parts.Length > 2 ? parts[2] : "";
+                        _notificationService.SendUnknownCommandNotification(arg1, arg2);
+                    }
+
+                    break;
+
                 default:
                     _notificationService.SendToastNotification(
-                        LanguageHelper.Get(Messages.UnknownCommand, arg1, $"{Commands.PreFix} {Commands.Help}"),                      
+                        LanguageHelper.Get(Messages.UnknownCommand, arg1, $"{Commands.PreFix} {Commands.Help}"),
                         NotificationBadges.Alert
                     );
                     break;

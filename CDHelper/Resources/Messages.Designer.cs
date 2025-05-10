@@ -61,11 +61,56 @@ namespace CDHelper.Resources {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a and {0} more.
+        /// </summary>
+        public static string AndMore {
+            get {
+                return ResourceManager.GetString("AndMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a und {0} mehr.
+        /// </summary>
+        public static string AndMore1 {
+            get {
+                return ResourceManager.GetString("AndMore1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Auto-search disabled.
+        /// </summary>
+        public static string AutoSearchDisabled {
+            get {
+                return ResourceManager.GetString("AutoSearchDisabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Auto-search enabled.
+        /// </summary>
+        public static string AutoSearchEnabled {
+            get {
+                return ResourceManager.GetString("AutoSearchEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a {0} CD&apos;s Found!.
         /// </summary>
         public static string CDsFound {
             get {
                 return ResourceManager.GetString("CDsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Switches the extension&apos;s language.
+        /// </summary>
+        public static string ChangeLanguage {
+            get {
+                return ResourceManager.GetString("ChangeLanguage", resourceCulture);
             }
         }
         
@@ -169,6 +214,15 @@ namespace CDHelper.Resources {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Language changed to.
+        /// </summary>
+        public static string LanguageChangedTo {
+            get {
+                return ResourceManager.GetString("LanguageChangedTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a CD Helper has been loaded successfully.
         /// </summary>
         public static string LoadedSuccessfully {
@@ -232,11 +286,38 @@ namespace CDHelper.Resources {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Showing {0} of {1} CDs. To see more, try {2}.
+        /// </summary>
+        public static string ShowingXofYCds {
+            get {
+                return ResourceManager.GetString("ShowingXofYCds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Zeige {0} von {1} CDs. Um mehr zu sehen, versuche {2}.
+        /// </summary>
+        public static string ShowingXofYCds1 {
+            get {
+                return ResourceManager.GetString("ShowingXofYCds1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Successfully exported {0} CDs.
         /// </summary>
         public static string SuccessfullyExportedCDs {
             get {
                 return ResourceManager.GetString("SuccessfullyExportedCDs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Supported languages.
+        /// </summary>
+        public static string SupportedLanguages {
+            get {
+                return ResourceManager.GetString("SupportedLanguages", resourceCulture);
             }
         }
         

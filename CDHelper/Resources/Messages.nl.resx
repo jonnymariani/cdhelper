@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AndMore" xml:space="preserve">
+    <value>en {0} meer</value>
+  </data>
+  <data name="AutoSearchDisabled" xml:space="preserve">
+    <value>Automatisch zoeken uitgeschakeld</value>
+  </data>
+  <data name="AutoSearchEnabled" xml:space="preserve">
+    <value>Automatisch zoeken ingeschakeld</value>
+  </data>
   <data name="CDsFound" xml:space="preserve">
     <value>{0} cd's gevonden!</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Wijzigt de taal van de extensie</value>
   </data>
   <data name="Command" xml:space="preserve">
     <value>commando</value>
@@ -153,6 +165,9 @@
   <data name="Info" xml:space="preserve">
     <value>Informatie</value>
   </data>
+  <data name="LanguageChangedTo" xml:space="preserve">
+    <value>Taal gewijzigd naar</value>
+  </data>
   <data name="LoadedSuccessfully" xml:space="preserve">
     <value>CD Helper succesvol geladen</value>
   </data>
@@ -174,8 +189,14 @@
   <data name="RoomNotBeingTracked" xml:space="preserve">
     <value>De status van de kamer wordt niet gevolgd. Ga opnieuw de kamer binnen en probeer het opnieuw</value>
   </data>
+  <data name="ShowingXofYCds" xml:space="preserve">
+    <value>Weergeven {0} van {1} CD's. Om meer te zien, probeer {2}</value>
+  </data>
   <data name="SuccessfullyExportedCDs" xml:space="preserve">
     <value>{0} cd's succesvol geëxporteerd</value>
+  </data>
+  <data name="SupportedLanguages" xml:space="preserve">
+    <value>Ondersteunde talen</value>
   </data>
   <data name="ToUseCommands" xml:space="preserve">
     <value>Om commando's te gebruiken, typ ze in de chat als volgt</value>

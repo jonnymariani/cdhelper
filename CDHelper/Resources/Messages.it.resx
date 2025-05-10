@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AndMore" xml:space="preserve">
+    <value>e {0} in più</value>
+  </data>
+  <data name="AutoSearchDisabled" xml:space="preserve">
+    <value>Ricerca automatica disattivata</value>
+  </data>
+  <data name="AutoSearchEnabled" xml:space="preserve">
+    <value>Ricerca automatica attivata</value>
+  </data>
   <data name="CDsFound" xml:space="preserve">
     <value>Trovati {0} CD!</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Cambia la lingua dell'estensione</value>
   </data>
   <data name="Command" xml:space="preserve">
     <value>comando</value>
@@ -153,6 +165,9 @@
   <data name="Info" xml:space="preserve">
     <value>Informazioni</value>
   </data>
+  <data name="LanguageChangedTo" xml:space="preserve">
+    <value>Lingua cambiata in</value>
+  </data>
   <data name="LoadedSuccessfully" xml:space="preserve">
     <value>CD Helper caricato con successo</value>
   </data>
@@ -174,8 +189,14 @@
   <data name="RoomNotBeingTracked" xml:space="preserve">
     <value>Lo stato della stanza non è monitorato. Rientra nella stanza e riprova</value>
   </data>
+  <data name="ShowingXofYCds" xml:space="preserve">
+    <value>Mostrando {0} di {1} CD. Per vedere di più, prova {2}</value>
+  </data>
   <data name="SuccessfullyExportedCDs" xml:space="preserve">
     <value>{0} CD esportati con successo</value>
+  </data>
+  <data name="SupportedLanguages" xml:space="preserve">
+    <value>Lingue supportate</value>
   </data>
   <data name="ToUseCommands" xml:space="preserve">
     <value>Per utilizzare i comandi, digitarli nella chat come segue</value>

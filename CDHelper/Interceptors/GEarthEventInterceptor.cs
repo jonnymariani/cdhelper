@@ -16,6 +16,7 @@ namespace CDHelper.Interceptors
         public static void OnExtensionInitialized(InitializedEventArgs e)
         {
             Console.WriteLine("Extension initialized.");
+            ConfigManager.Load();
         }
 
         /// <summary>
@@ -31,7 +32,11 @@ namespace CDHelper.Interceptors
                 // Load game data for the current hotel.
                 await gameDataManager.LoadAsync(e.Session.Hotel);
 
-                LanguageHelper.SetLanguage(e.Session.Hotel.Domain);
+                //Load language
+
+                string? lang = ConfigManager.Get<string>(ConfigKeys.Language, string.Empty);
+                LanguageHelper.SetLanguage(string.IsNullOrEmpty(lang) ? e.Session.Hotel.Domain : lang);
+
                 CatalogMusicData.SetData(e.Session.Hotel.Domain);
 
                 Console.WriteLine($"Loaded {gameDataManager.Furni?.Count ?? 0} furni info");
@@ -57,11 +62,23 @@ namespace CDHelper.Interceptors
         /// Handles the extension activated event
         /// Manipula o evento de ativacao da extensao
         /// </summary>
-        public static void OnExtensionActivated(NotificationService notificationHandler)
+        public static void OnExtensionActivated(NotificationService notificationService)
         {
             Console.WriteLine("Extension activated!");
 
-            notificationHandler.SendToastNotification($"{LanguageHelper.Get(Messages.LoadedSuccessfully)}!", NotificationBadges.Loaded);
+            notificationService.SendToastNotification($"{LanguageHelper.Get(Messages.LoadedSuccessfully)}!", NotificationBadges.Loaded);
+
+            //Config
+            bool AutoSearchEnabled = ConfigManager.Get<bool>(ConfigKeys.AutoSearchEnabled);
+
+            if (AutoSearchEnabled)
+            {
+                notificationService.SendToastNotification(LanguageHelper.Get(Messages.AutoSearchEnabled), NotificationBadges.Alert);
+            }
+
+
+
+
         }
     }
 }

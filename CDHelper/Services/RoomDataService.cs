@@ -12,13 +12,17 @@ namespace CDHelper.Services
         private readonly NotificationService _notificationService;
         private readonly RoomManager _roomManager;
         private readonly FurniHelper _furniHelper;
+        private readonly JukeboxService _jukeboxService;
 
-        public RoomDataService(NotificationService notificationService, RoomManager roomManager, FurniHelper furniHelper)
+        public RoomDataService(NotificationService notificationService, RoomManager roomManager, FurniHelper furniHelper, JukeboxService jukeboxService)
         {
             _notificationService = notificationService;
             _roomManager = roomManager;
             _furniHelper = furniHelper;
+            _jukeboxService = jukeboxService;
         }
+
+
 
         /// <summary>
         /// Retrieves the list of CDs from the current room  
@@ -46,6 +50,32 @@ namespace CDHelper.Services
 
             return list;
         }
-        
+
+        /// <summary>
+        /// Checks for CDs both in the current room and in the jukebox
+        /// Verifica CDs tanto no quarto quanto no jukebox
+        /// </summary>
+        public async Task CheckForCds()
+        {
+            var cds = new List<CdData>();
+
+            // Adds CDs found (if any)
+            // Adiciona CDs encontrados (se houver)
+            cds.AddRange(GetRoomCds() ?? []);
+            cds.AddRange(await _jukeboxService.GetJukeboxCds() ?? []);
+
+
+            // Sends notification 
+            // Envia notificação 
+
+            //_notificationService.SendCdsCountNotification(cds.Count);
+
+            // Usando DistinctBy para obter CDs únicos
+            var uniqueCdCount = cds.DistinctBy(cd => new { cd.Title, cd.Author }).Count();
+            
+            _notificationService.SendCdsFoundNotification(cds, NotificationBadges.CdsFound, uniqueCdCount > 5);
+
+        }
+
     }
 }

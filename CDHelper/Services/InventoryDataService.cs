@@ -35,7 +35,7 @@ namespace CDHelper.Services
             {
                 // Loads the inventory   
                 // Carrega o inventário
-                IInventory inventory = await _inventoryManager.LoadInventoryAsync();
+                IInventory inventory = await _inventoryManager.GetInventoryAsync();
 
                 // Filters the furni to get only the CDs 
                 // Filtra os furnis para pegar apenas os CDs

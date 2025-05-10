@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AutoSearchDisabled" xml:space="preserve">
+    <value>Automatische Suche deaktiviert</value>
+  </data>
+  <data name="AutoSearchEnabled" xml:space="preserve">
+    <value>Automatische Suche aktiviert</value>
+  </data>
   <data name="CDsFound" xml:space="preserve">
     <value>{0} CDs gefunden!</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Wechselt die Sprache der Erweiterung</value>
   </data>
   <data name="Command" xml:space="preserve">
     <value>Befehl</value>
@@ -153,6 +162,9 @@
   <data name="Info" xml:space="preserve">
     <value>Informationen</value>
   </data>
+  <data name="LanguageChangedTo" xml:space="preserve">
+    <value>Sprache geändert zu</value>
+  </data>
   <data name="LoadedSuccessfully" xml:space="preserve">
     <value>CD Helper erfolgreich geladen</value>
   </data>
@@ -176,6 +188,9 @@
   </data>
   <data name="SuccessfullyExportedCDs" xml:space="preserve">
     <value>{0} CDs erfolgreich exportiert</value>
+  </data>
+  <data name="SupportedLanguages" xml:space="preserve">
+    <value>Unterstützte Sprachen</value>
   </data>
   <data name="ToUseCommands" xml:space="preserve">
     <value>Um Befehle zu verwenden, geben Sie sie wie folgt in den Chat ein</value>
