@@ -45,15 +45,15 @@ All commands start with <strong>":cd"</strong>
   * <strong>export</strong> or <strong>export all</strong> - Exports from all above
 
 * <strong>language</strong> - Switches the extension's language
-  * <strong>pt</strong> - Set language to Portuguese (Brazil)
-  * <strong>en</strong> - Set language to English
-  * <strong>es</strong> - Set language to Spanish
-  * <strong>fi</strong> - Set language to Finnish
-  * <strong>it</strong> - Set language to Italian
-  * <strong>nl</strong> - Set language to Dutch
-  * <strong>de</strong> - Set language to German
-  * <strong>fr</strong> - Set language to French
-  * <strong>tr</strong> - Set language to Turkish
+  * <strong>language pt</strong> - Set language to Portuguese (Brazil)
+  * <strong>language en</strong> - Set language to English
+  * <strong>language es</strong> - Set language to Spanish
+  * <strong>language fi</strong> - Set language to Finnish
+  * <strong>language it</strong> - Set language to Italian
+  * <strong>language nl</strong> - Set language to Dutch
+  * <strong>language de</strong> - Set language to German
+  * <strong>language fr</strong> - Set language to French
+  * <strong>language tr</strong> - Set language to Turkish
 
 
 * <strong>help</strong> - Opens the help screen.
