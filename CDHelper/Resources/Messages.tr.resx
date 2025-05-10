@@ -129,6 +129,9 @@
   <data name="CDsFound" xml:space="preserve">
     <value>{0} CD bulundu!</value>
   </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Uzantının dilini değiştirir</value>
+  </data>
   <data name="Command" xml:space="preserve">
     <value>komut</value>
   </data>
@@ -191,6 +194,9 @@
   </data>
   <data name="SuccessfullyExportedCDs" xml:space="preserve">
     <value>{0} CD başarıyla dışa aktarıldı</value>
+  </data>
+  <data name="SupportedLanguages" xml:space="preserve">
+    <value>Desteklenen diller</value>
   </data>
   <data name="ToUseCommands" xml:space="preserve">
     <value>Komutları kullanmak için, onları sohbete şu şekilde yazın</value>

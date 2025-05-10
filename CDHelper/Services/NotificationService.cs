@@ -35,17 +35,23 @@ namespace CDHelper.Services
 
         public void SendCdsFoundNotification(IEnumerable<CdData>? cds, string badge, bool modal = true)
         {
-            if (cds?.Any() == true) // Checks if there are any CDs
+            if (cds?.Any() == true)
             {
                 int quantity = 20;
 
                 var cdToList = cds.Take(quantity);
 
+                // Agrupa os CDs pelo título e autor e conta as ocorrências
+                var groupedCds = cdToList
+                    .GroupBy(cd => new { cd.Title, cd.Author })
+                    .Select(g => new { g.Key.Title, g.Key.Author, Quantity = g.Count() })
+                    .ToList();
+
                 // Builds the message with the list of found CDs
                 // Monta a mensagem com a lista de CDs encontrados
                 var messageBuilder = new StringBuilder("\n");
 
-                foreach (var cd in cdToList)
+                foreach (var cd in groupedCds)
                 {
                     // Add each CD to the message with proper formatting
                     // Adiciona cada CD a mensagem com a formatação adequada
@@ -55,7 +61,13 @@ namespace CDHelper.Services
                        ? $"<b>{cd.Title}{authorDisplay}</b>"
                        : $"{cd.Title}{authorDisplay}";
 
-                    messageBuilder.AppendLine($"{(modal ? "\t" : "")}{formatted}");
+                    string quantityDisplay = cd.Quantity > 1
+                       ? (modal ? $" <b>(x{cd.Quantity})</b>" : $" (x{cd.Quantity})")
+                       : "";
+
+                    string displayText = formatted + quantityDisplay;
+
+                    messageBuilder.AppendLine($"{(modal ? "\t" : "")}{displayText}");
                 }
 
                 if (modal)
@@ -109,13 +121,17 @@ namespace CDHelper.Services
 
             message += $"<b>{Commands.GetJukeboxCds}</b> - {LanguageHelper.Get(Messages.RetrievesListOfCDs)}.\n\n";
             message += $"<b>{Commands.GetCdInfoFromMarket}</b> - {LanguageHelper.Get(Messages.RetrievesNameMarketplace)}.\n\n";
-            message += $"<b>{Commands.Help}</b> - {LanguageHelper.Get(Messages.OpensThisScreen)}\n\n";
 
             message += $"<b>{Commands.Export}</b> - {LanguageHelper.Get(Messages.Export)}\n\n";
             message += $"\t<b>{Commands.Export} {ExportSuffix.Inventory}</b> - {LanguageHelper.Get(Messages.ExportInv)}\n";
             message += $"\t<b>{Commands.Export} {ExportSuffix.Room}</b> - {LanguageHelper.Get(Messages.ExportRoom)}\n";
             message += $"\t<b>{Commands.Export} {ExportSuffix.Jukebox}</b> - {LanguageHelper.Get(Messages.ExportJuke)}\n";
-            message += $"\t<b>{Commands.Export}</b> / <b>{Commands.Export} {ExportSuffix.Jukebox}</b> - {LanguageHelper.Get(Messages.ExportAll)}\n\n";
+            message += $"\t<b>{Commands.Export}</b> / <b>{Commands.Export} {ExportSuffix.All}</b> - {LanguageHelper.Get(Messages.ExportAll)}\n\n";
+
+            message += $"<b>{Commands.Language} [...]</b> - {LanguageHelper.Get(Messages.ChangeLanguage)}\n\n";
+            message += $"{LanguageHelper.Get(Messages.SupportedLanguages)}: <b>pt, en, es, fi, it, nl, de, fr, tr</b>\n\n";
+
+            message += $"<b>{Commands.Help}</b> - {LanguageHelper.Get(Messages.OpensThisScreen)}\n\n";
 
             message += $"<b>{LanguageHelper.Get(Messages.ExampleUsage)}:</b>\n\n";
             message += $"{LanguageHelper.Get(Messages.ToUseCommands)}:\n\n";

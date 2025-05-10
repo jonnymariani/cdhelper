@@ -51,7 +51,7 @@ namespace CDHelper
             _roomManager = new RoomManager(_extension);
             _profileManager = new ProfileManager(_extension);
             _tradeManager = new TradeManager(_extension, _profileManager, _roomManager);
-            _inventoryManager = new InventoryManager(_extension, _roomManager, _tradeManager);
+            _inventoryManager = new InventoryManager(_extension);
 
             _jukeboxService = new JukeboxService(_extension, _notificationService);
             _furniHelper = new FurniHelper();

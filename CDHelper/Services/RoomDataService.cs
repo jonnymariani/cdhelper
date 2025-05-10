@@ -70,7 +70,10 @@ namespace CDHelper.Services
 
             //_notificationService.SendCdsCountNotification(cds.Count);
 
-            _notificationService.SendCdsFoundNotification(cds, NotificationBadges.CdsFound, cds.Count > 5);
+            // Usando DistinctBy para obter CDs únicos
+            var uniqueCdCount = cds.DistinctBy(cd => new { cd.Title, cd.Author }).Count();
+            
+            _notificationService.SendCdsFoundNotification(cds, NotificationBadges.CdsFound, uniqueCdCount > 5);
 
         }
 

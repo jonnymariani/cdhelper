@@ -129,6 +129,9 @@
   <data name="CDsFound" xml:space="preserve">
     <value>{0} cd's gevonden!</value>
   </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Wijzigt de taal van de extensie</value>
+  </data>
   <data name="Command" xml:space="preserve">
     <value>commando</value>
   </data>
@@ -191,6 +194,9 @@
   </data>
   <data name="SuccessfullyExportedCDs" xml:space="preserve">
     <value>{0} cd's succesvol geëxporteerd</value>
+  </data>
+  <data name="SupportedLanguages" xml:space="preserve">
+    <value>Ondersteunde talen</value>
   </data>
   <data name="ToUseCommands" xml:space="preserve">
     <value>Om commando's te gebruiken, typ ze in de chat als volgt</value>

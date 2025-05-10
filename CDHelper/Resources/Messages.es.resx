@@ -129,6 +129,9 @@
   <data name="CDsFound" xml:space="preserve">
     <value>¡{0} CDs encontrados!</value>
   </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Cambia el idioma de la extensión</value>
+  </data>
   <data name="Command" xml:space="preserve">
     <value>comando</value>
   </data>
@@ -191,6 +194,9 @@
   </data>
   <data name="SuccessfullyExportedCDs" xml:space="preserve">
     <value>{0} CDs exportados con éxito</value>
+  </data>
+  <data name="SupportedLanguages" xml:space="preserve">
+    <value>Idiomas compatibles</value>
   </data>
   <data name="ToUseCommands" xml:space="preserve">
     <value>Para usar los comandos, escríbelos en el chat de la siguiente manera</value>

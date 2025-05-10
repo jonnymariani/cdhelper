@@ -106,6 +106,15 @@ namespace CDHelper.Resources {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Switches the extension&apos;s language.
+        /// </summary>
+        public static string ChangeLanguage {
+            get {
+                return ResourceManager.GetString("ChangeLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a command.
         /// </summary>
         public static string Command {
@@ -300,6 +309,15 @@ namespace CDHelper.Resources {
         public static string SuccessfullyExportedCDs {
             get {
                 return ResourceManager.GetString("SuccessfullyExportedCDs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Supported languages.
+        /// </summary>
+        public static string SupportedLanguages {
+            get {
+                return ResourceManager.GetString("SupportedLanguages", resourceCulture);
             }
         }
         

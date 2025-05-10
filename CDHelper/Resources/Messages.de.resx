@@ -126,6 +126,9 @@
   <data name="CDsFound" xml:space="preserve">
     <value>{0} CDs gefunden!</value>
   </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Wechselt die Sprache der Erweiterung</value>
+  </data>
   <data name="Command" xml:space="preserve">
     <value>Befehl</value>
   </data>
@@ -185,6 +188,9 @@
   </data>
   <data name="SuccessfullyExportedCDs" xml:space="preserve">
     <value>{0} CDs erfolgreich exportiert</value>
+  </data>
+  <data name="SupportedLanguages" xml:space="preserve">
+    <value>Unterstützte Sprachen</value>
   </data>
   <data name="ToUseCommands" xml:space="preserve">
     <value>Um Befehle zu verwenden, geben Sie sie wie folgt in den Chat ein</value>

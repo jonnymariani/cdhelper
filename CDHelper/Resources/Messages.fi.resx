@@ -129,6 +129,9 @@
   <data name="CDsFound" xml:space="preserve">
     <value>{0} CD:t löydetty!</value>
   </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Vaihtaa laajennuksen kielen</value>
+  </data>
   <data name="Command" xml:space="preserve">
     <value>komento</value>
   </data>
@@ -191,6 +194,9 @@
   </data>
   <data name="SuccessfullyExportedCDs" xml:space="preserve">
     <value>{0} CD:t viety onnistuneesti</value>
+  </data>
+  <data name="SupportedLanguages" xml:space="preserve">
+    <value>Tuetut kielet</value>
   </data>
   <data name="ToUseCommands" xml:space="preserve">
     <value>Käyttääksesi komentoja, kirjoita ne chattiin seuraavasti</value>
