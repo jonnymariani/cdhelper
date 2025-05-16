@@ -90,7 +90,8 @@ namespace CDHelper.Handlers
                             //Exports only from the room
                             //Exporta apenas do quarto
                             case ExportSuffix.Room:
-                                _exportService.ExportRoom();
+                                string arg3 = parts[2] ?? "";
+                                _ = _exportService.ExportRoom(arg3.ToLower() == "bom");
                                 break;
 
                             //Exports only from the inventory

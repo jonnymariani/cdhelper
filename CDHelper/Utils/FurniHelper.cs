@@ -46,7 +46,11 @@ namespace CDHelper.Utils
                             title = catalogData.Title;
                         }
 
-                        var cd = new CdData(title, author);
+                        var cd = new CdData(title, author)
+                        {
+                            SongId = extraValue ?? 0
+                        };
+
                         list.Add(cd);
                     }
                 }
